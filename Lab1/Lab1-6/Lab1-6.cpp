@@ -18,7 +18,10 @@ int main()
 	u1 = (long long) u * 100;	//100 years
 	u2 = (long long) u * 1000;	//1000 years
 
+	long long u3, u4; 
 
+	u3 = u * 100;	//100 years
+	u4 = u * 1000;	//1000 years
 
 
 
