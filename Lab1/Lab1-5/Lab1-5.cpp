@@ -8,15 +8,9 @@ int main()
 {
 
 
-
 	int a, b;
-
 	a = 23;
-	
 	b = a + 1;
-
-
-
 
 
 

@@ -10,8 +10,6 @@ int main()
 
 	a = 2;
 
-
-
 	c = a * a;
 	d = c * c;
 	b = d * d;
