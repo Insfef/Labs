@@ -6,28 +6,23 @@
 int main()
 {
     int a = 1;
-    printf("a = %d\n", a);
-    printf("sizeof = %d\n\n", sizeof(a));
+    int aa = sizeof(a);
 
     short b = 1;
-    printf("b = %d\n", b);
-    printf("sizeof = %d\n\n", sizeof(b));
+    int bb = sizeof(b);
 
     long c = 1;
-    printf("c = %d\n", c);
-    printf("sizeof = %d\n\n", sizeof(c));
+    int cc = sizeof(c);
 
     char d = 1;
-    printf("d = %d\n", d);
-    printf("sizeof = %d\n\n", sizeof(d));
-
+    int dd = sizeof(d);
+  
     float e = 1;
-    printf("e = %f\n", e);
-    printf("sizeof = %d\n\n", sizeof(e));
+    int ee = sizeof(e);
 
     double f = 1;
-    printf("f = %lf\n", f);
-    printf("sizeof = %d\n\n", sizeof(f));
+    int ff = sizeof(f);
+
 
 }
 

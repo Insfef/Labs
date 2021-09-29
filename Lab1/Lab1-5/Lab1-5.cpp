@@ -2,10 +2,26 @@
 //
 
 #include <iostream>
+#define _CRT_SECURE_NO_WARNINGS
 
 int main()
 {
-    std::cout << "Hello World!\n";
+
+
+
+	int a, b;
+
+	a = 23;
+	
+	b = a + 1;
+
+
+
+
+
+
+
+
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

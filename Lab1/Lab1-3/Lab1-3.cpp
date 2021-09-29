@@ -10,13 +10,12 @@ int main()
 
 	a = 2;
 
-	//b = pow(a, 8);
+
 
 	c = a * a;
 	d = c * c;
 	b = d * d;
 
-	printf("b = %d\n\n", b);
 
 
 

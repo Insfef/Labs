@@ -13,15 +13,11 @@ int main()
 	int a, b;
 
 	a = 2;
-	b = 3;
+	b = 4;
 
 	a = b + a;
 	b = a - b;
 	a = a - b;
-
-	printf("a = %d\n\n", a);
-
-	printf("b = %d\n\n\n\n\n", b);
 
 
 	//1-4-2
@@ -29,18 +25,13 @@ int main()
 
 	int c, d, e;
 
-	c = 2;
-	d = 3;
+	c = 22;
+	d = 11;
 
 	e = d;
 	d = c;
 	c = e;
 
-
-
-	printf("c = %d\n\n", c);
-
-	printf("d = %d\n\n", d);
 
 
 
