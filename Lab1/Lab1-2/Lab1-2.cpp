@@ -16,7 +16,6 @@ int main()
 
 	S1 = sqrt(p * (p - a) * (p - b) * (p - c));
 
-	//S = pow(S1, 0.5);
 
 
 
