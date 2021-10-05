@@ -15,7 +15,7 @@ int main()
 	e = n * 60;		//hour
 	p = e * 24;		//day
 	u = p * 365;	//year
-	u1 = (long long) u * 100;	//100 years
+	u1 =  u * 100;	//100 years
 	u2 = (long long) u * 1000;	//1000 years
 
 	long long u3, u4; 
