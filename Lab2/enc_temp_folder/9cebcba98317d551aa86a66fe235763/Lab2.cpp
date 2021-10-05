@@ -13,7 +13,7 @@ int main()
 	//int cnt1, cnt2, cnt3;
 	//float sq1, sq2, sq3;
 
-	char name1[7], name2[8], name3[12]; 
+	char name1[7], name2[8], name3[12]; //strcpy(name1, "Тодайдзи");
 	char sc1, sc2, sc3;
 	float cnt1, cnt2, cnt3;
 	float sq1, sq2, sq3;
