@@ -8,15 +8,17 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	//char name1[9], name2[9], name3[9];
-	//char sc1, sc2, sc3;
-	//int cnt1, cnt2, cnt3;
-	//float sq1, sq2, sq3;
+	/* 
+	char name1[7] = "Папка", name2[8] = "Бумага", name3[12] = "Калькулятор";
+	char sc1 = 'К', sc2 = 'K', sc3 = 'O';
+	float cnt1 = 4.75, cnt2 = 13.90, cnt3 = 411.00;
+	float sq1 = 4, sq2 = 10, sq3 = 1;	*/
 
-	char name1[7], name2[8], name3[12]; 
-	char sc1, sc2, sc3;
-	float cnt1, cnt2, cnt3;
-	float sq1, sq2, sq3;
+	char name1[7] = "Папка", name2[8] = "Бумага", name3[12] = "Калькулятор";
+	char sc1 = 'К', sc2 = 'K', sc3 = 'O';
+	float cnt1 = 4.75, cnt2 = 13.90, cnt3 = 411.00;
+	float sq1 = 4, sq2 = 10, sq3 = 1;
+
 	/* Введение фактических данных*/
 	printf("1. Введите: Наименование, Тип, Цену, Минимальное количество в партии >");
 	scanf("%s %c %f %f", name1, &sc1, &cnt1, &sq1);
