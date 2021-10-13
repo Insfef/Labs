@@ -1,4 +1,4 @@
-#define  _CRT_SECURE_NO_WARNINGS
+п»ї#define  _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <conio.h>
 #include "windows.h"
@@ -7,32 +7,33 @@ int main(void) {
 	SetConsoleOutputCP(1251);
 	double a, b, c, d;
 
-	printf("Введите a >");
-	scanf("%lf", &a);
-	printf("Введите b >");
-	scanf("%lf", &b);
-	printf("Введите c >");
-	scanf("%lf", &c);
+	while(true) {
+		printf("Р’РІРµРґРёС‚Рµ a >");
+		scanf("%lf", &a);
+		printf("Р’РІРµРґРёС‚Рµ b >");
+		scanf("%lf", &b);
+		printf("Р’РІРµРґРёС‚Рµ c >");
+		scanf("%lf", &c);
 
-	double b2, db, x1, x2;
-	b2 = b * b;
+		double b2, db, x1, x2;
+		b2 = b * b;
 
-	d = b2 - 4 * a * c;
+		d = b2 - 4 * a * c;
 
-	if (d >= 0) {
+		if (d >= 0) {
 
-		db = sqrt(d);
+			db = sqrt(d);
 
-		x1 = (-b + db) / (2 * a);
-		x2 = (-b - db) / (2 * a);
-		if (d > 0)
-			printf("x1=%6.3lf;  x2=%6.3lf\n", x1, x2);
+			x1 = (-b + db) / (2 * a);
+			x2 = (-b - db) / (2 * a);
+			if (d > 0)
+				printf("x1=%6.3lf;  x2=%6.3lf\n", x1, x2);
+			else
+				printf("x1=%6.3lf;\n", x1);
+		}
 		else
-			printf("x1=%6.3lf;\n", x1);
+
+			printf("СѓСЂР°РІРЅРµРЅРёРµ РЅРµ РёРјРµРµС‚ РєРѕСЂРЅРµР№\n");
 	}
-	else
-
-		printf("уравнение не имеет корней\n");
-
 
 }

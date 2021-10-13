@@ -1,4 +1,4 @@
-#define  _CRT_SECURE_NO_WARNINGS
+п»ї#define  _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <conio.h>
 #include "windows.h"
@@ -10,9 +10,9 @@ int main(void) {
 	{
 		system("cls");
 
-		printf("Введите координату x >");
+		printf("Р’РІРµРґРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚Сѓ x >");
 		scanf("%lf", &x);
-		printf("Введите координату y >");
+		printf("Р’РІРµРґРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚Сѓ y >");
 		scanf("%lf", &y);
 
 		printf("x=%6.3lf;  y=%6.3lf\n", x, y);
@@ -21,12 +21,12 @@ int main(void) {
 		(
 			( (x >= 0) && (x * x + y * y <= 1) || (x <= 0) && (x * x + y * y <= 2) ) && (y >= 0)
 		)
-		printf("Точка попадает в область\n");
+		printf("РўРѕС‡РєР° РїРѕРїР°РґР°РµС‚ РІ РѕР±Р»Р°СЃС‚СЊ\n");
 
 		else 
-		printf("Точка не попадает в область\n");
+		printf("РўРѕС‡РєР° РЅРµ РїРѕРїР°РґР°РµС‚ РІ РѕР±Р»Р°СЃС‚СЊ\n");
 
-		printf("Для продолжения нажмите любую клавишу");
+		printf("Р”Р»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РЅР°Р¶РјРёС‚Рµ Р»СЋР±СѓСЋ РєР»Р°РІРёС€Сѓ");
 		_getch();
 	}
 

@@ -1,4 +1,4 @@
-#define  _CRT_SECURE_NO_WARNINGS
+ï»¿#define  _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <conio.h>
 #include "windows.h"
@@ -11,27 +11,27 @@ int main(void) {
 
 		
 
-		// xx1 ãðèá
-		// xx2-4 ãðèáà
-		// xx5-0 ãðèáîâ
-		// 11 - 19 ãðèáîâ
+		// xx1 Ð³Ñ€Ð¸Ð±
+		// xx2-4 Ð³Ñ€Ð¸Ð±Ð°
+		// xx5-0 Ð³Ñ€Ð¸Ð±Ð¾Ð²
+		// 11 - 19 Ð³Ñ€Ð¸Ð±Ð¾Ð²
 
-		printf("Ââåäèòå êîëè÷åñòâî ãðèáîâ >");
+		printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð³Ñ€Ð¸Ð±Ð¾Ð² >");
 		scanf("%d", &k);
 
 		k1 = k % 10;
 	
 		if (k >= 11 && k <= 19)
-			printf("ó ìåíÿ %d ãðèáîâ\n", k);
+			printf("Ñƒ Ð¼ÐµÐ½Ñ %d Ð³Ñ€Ð¸Ð±Ð¾Ð²\n", k);
 		
 		else
 		{
 			if (k1 == 1)
-				printf("ó ìåíÿ %d ãðèá\n\n", k);
+				printf("Ñƒ Ð¼ÐµÐ½Ñ %d Ð³Ñ€Ð¸Ð±\n\n", k);
 			if (k1 >= 2 && k1 <= 4)
-				printf("ó ìåíÿ %d ãðèáà\n\n", k);
+				printf("Ñƒ Ð¼ÐµÐ½Ñ %d Ð³Ñ€Ð¸Ð±Ð°\n\n", k);
 			if (k1 >= 5 && k1 <= 9 || k1 == 0)
-				printf("ó ìåíÿ %d ãðèáîâ\n\n", k);
+				printf("Ñƒ Ð¼ÐµÐ½Ñ %d Ð³Ñ€Ð¸Ð±Ð¾Ð²\n\n", k);
 
 			
 		}

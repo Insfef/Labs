@@ -1,4 +1,4 @@
-#define  _CRT_SECURE_NO_WARNINGS
+ï»¿#define  _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include "windows.h"
 using namespace std;
@@ -6,14 +6,14 @@ using namespace std;
 int main(void) {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	/* ïàðàìåòðû, êîòîðûå ââîäÿòñÿ */
+	/* Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð²Ð²Ð¾Ð´ÑÑ‚ÑÑ */
 	double x, y; 
-	/* ïàðàìåòðû, êîòîðûå çàäàþòñÿ â ïðîãðàììå */
+	/* Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð·Ð°Ð´Ð°ÑŽÑ‚ÑÑ Ð² Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ðµ */
 	double a = 3;
-	double t1, t2;   /* ðåçóëüòàòû */
-	double ax, n = 5, n1, n2, n3;       /* ðàáî÷àÿ ïåðåìåííàÿ */
+	double t1, t2;   /* Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ñ‹ */
+	double ax, n = 5, n1, n2, n3;       /* Ñ€Ð°Ð±Ð¾Ñ‡Ð°Ñ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ð°Ñ */
 
-	printf("Ââåäèòå x, y >");
+	printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ x, y >");
 	scanf("%lf %lf", &x, &y);
 
 	ax = a * x * 3.14159 / 180;

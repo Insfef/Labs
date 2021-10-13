@@ -1,4 +1,4 @@
-#define  _CRT_SECURE_NO_WARNINGS
+ï»¿#define  _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include "windows.h";
 using namespace std;
@@ -9,23 +9,23 @@ int main(void) {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    unsigned int o; /* Èäåíòèôèêàòîð âëàäåëüöà áëîêà */
-    unsigned int p; /* Ïðèçíàê ïðîãðàììíîãî áëîêà */
-    unsigned int l; /* Ðàçìåð áëîêà */
-    unsigned short UnitStateWord; /* áëîê óïðàâëåíèÿ ïàìÿòüþ */
+    unsigned int o; /* Ð˜Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€ Ð²Ð»Ð°Ð´ÐµÐ»ÑŒÑ†Ð° Ð±Ð»Ð¾ÐºÐ° */
+    unsigned int p; /* ÐŸÑ€Ð¸Ð·Ð½Ð°Ðº Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ð½Ð¾Ð³Ð¾ Ð±Ð»Ð¾ÐºÐ° */
+    unsigned int l; /* Ð Ð°Ð·Ð¼ÐµÑ€ Ð±Ð»Ð¾ÐºÐ° */
+    unsigned short UnitStateWord; /* Ð±Ð»Ð¾Ðº ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð¿Ð°Ð¼ÑÑ‚ÑŒÑŽ */
 
-    printf("Ââåäèòå èäåíòèôèêàòîð âëàäåëüöà áëîêà (0 - 255) >");
+    printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€ Ð²Ð»Ð°Ð´ÐµÐ»ÑŒÑ†Ð° Ð±Ð»Ð¾ÐºÐ° (0 - 255) >");
     scanf("%d", &o);
-    printf("Ââåäèòå ïðèçíàê ïðîãðàììíîãî áëîêà (0 / 1) >");
+    printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿Ñ€Ð¸Ð·Ð½Ð°Ðº Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ð½Ð¾Ð³Ð¾ Ð±Ð»Ð¾ÐºÐ° (0 / 1) >");
     scanf("%d", &p);
-    printf("Ââåäèòå ðàçìåð áëîêà (0 - 63) >");
+    printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð±Ð»Ð¾ÐºÐ° (0 - 63) >");
     scanf("%d", &l);
 
     UnitStateWord = ((unsigned char)o & 0xFF) << 8;
     UnitStateWord |= ((unsigned char)p & 1) << 6;
     UnitStateWord |= l & 0x3F;
 
-    printf("\nÁëîê óïðàâëåíèÿ ïàìÿòüþ = %04x\n", UnitStateWord);
+    printf("\nÐ‘Ð»Ð¾Ðº ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð¿Ð°Ð¼ÑÑ‚ÑŒÑŽ = %04x\n", UnitStateWord);
 
 
     return 0;
