@@ -9,9 +9,9 @@ int main(void) {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    unsigned short o; /* Идентификатор владельца блока */
-    unsigned short p; /* Признак программного блока */
-    unsigned short l; /* Размер блока */
+    int o; /* Идентификатор владельца блока */
+    int p; /* Признак программного блока */
+    int l; /* Размер блока */
     unsigned short int UnitStateWord; /* блок управления памятью */
 
     printf("Введите идентификатор владельца блока (0 - 255) >");
