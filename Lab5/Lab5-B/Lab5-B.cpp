@@ -32,12 +32,9 @@ int main(void) {
 				printf("у меня %d гриба\n\n", k);
 			if (k1 >= 5 && k1 <= 9 || k1 == 0)
 				printf("у меня %d грибов\n\n", k);
+
 			
 		}
-
-
-
-
 
 
 
