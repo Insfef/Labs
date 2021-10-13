@@ -8,7 +8,7 @@ int main(void) {
 	unsigned short o; /* Идентификатор владельца блока */
 	unsigned short p; /* Признак программного блока */
 	unsigned short l; /* Размер блока */
-	unsigned short int UnitStateWord; /* Блок управления памятью */
+	unsigned short UnitStateWord; /* Блок управления памятью */
 								/* Ввод блока управления памятью */
 	printf("Введите блок управления памятью \n");
 	printf("(16-ричное число от 0 до 0xFFFF) >");
