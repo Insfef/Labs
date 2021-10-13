@@ -5,7 +5,7 @@
 int main(void) {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	int k, k1, a, b, c, d;
+	int k, k1;
 
 	while (true) {
 
