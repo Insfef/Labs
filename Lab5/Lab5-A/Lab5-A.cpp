@@ -5,9 +5,7 @@
 int main(void) {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	double a, b, c, d, x, xx, 
-	//m,
-	n;
+	double a, b, c, d;
 
 	printf("¬ведите a >");
 	scanf("%lf", &a);
@@ -15,10 +13,6 @@ int main(void) {
 	scanf("%lf", &b);
 	printf("¬ведите c >");
 	scanf("%lf", &c);
-	//printf("¬ведите m >");
-	//scanf("%lf", &m);
-
-	//m = xx * a + x * b + c;
 
 	double b2, db, x1, x2;
 	b2 = b * b;
