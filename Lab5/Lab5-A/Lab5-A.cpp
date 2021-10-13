@@ -32,7 +32,7 @@ int main(void) {
 	}
 	else
 
-		printf("арбуз");
+		printf("уравнение не имеет корней\n");
 
 
 }
