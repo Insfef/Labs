@@ -5,23 +5,25 @@
 int main(void) {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	int k, k1;
+	int k, k1, k2;
 
 	while (true) {
 
 		
 
-		// xx1 гриб
-		// xx2-4 гриба
-		// xx5-0 грибов
+		// xxx1 гриб
+		// xxx2-4 гриба
+		// xxx5-0 грибов
 		// 11 - 19 грибов
+		// xx11 - 19 грибов
 
 		printf("Введите количество грибов >");
 		scanf("%d", &k);
 
 		k1 = k % 10;
+		k2 = k % 100;
 	
-		if (k >= 11 && k <= 19)
+		if (k2 >= 11 && k2 <= 19)
 			printf("у меня %d грибов\n", k);
 		
 		else
