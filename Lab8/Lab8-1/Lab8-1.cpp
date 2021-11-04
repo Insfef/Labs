@@ -25,7 +25,7 @@ int main(void)
 			int iii = i - 1;
 				if (Ar[ii] <= Ar[i] && i < 199 || Ar[ii] == Ar[i])
 				{
-					if (nn == 0);
+					if (nn == 0)
 					{
 						printf("%3d  ", i);
 						nn = 1;
