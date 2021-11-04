@@ -23,7 +23,7 @@ int main(void)
 		for (nn = i = 0; i < 200; i++) { 
 			int ii = i + 1;
 			int iii = i - 1;
-				if (Ar[ii] <= Ar[i] && i < 199 || Ar[ii] == Ar[i])
+				if (Ar[ii] <= Ar[i] && i < 199)
 				{
 					if (nn == 0)
 					{
