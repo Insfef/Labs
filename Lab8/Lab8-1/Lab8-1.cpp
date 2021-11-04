@@ -30,6 +30,9 @@ int main(void)
 						printf("%3d  ", i);
 						nn = 1;
 					}
+				}
+				else 
+				{
 					if (nn == 1)
 						nn = 0;
 				}
