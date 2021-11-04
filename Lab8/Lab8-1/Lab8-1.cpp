@@ -31,9 +31,7 @@ int main(void)
 						nn = 1;
 					}
 					if (nn == 1)
-					{
 						nn = 0;
-					}
 				}
 		}
 
