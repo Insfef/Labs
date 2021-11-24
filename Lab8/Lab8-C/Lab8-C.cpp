@@ -13,7 +13,7 @@ int main()
     long b;
     while (true)
     {
-        system("cls");
+
     printf("Введите число > ");
     scanf("%lf", &a);
     putchar('\n');
