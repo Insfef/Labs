@@ -2,7 +2,7 @@
 #define  _CRT_SECURE_NO_WARNINGS
 #include "windows.h"
 #include <iostream>
-
+#include <conio.h>
 int main()
 {
     SetConsoleCP(1251);
@@ -11,10 +11,13 @@ int main()
     long c, d, n, i, j, k;
     double a, f, g, h;
     long b;
+    while (true)
+    {
+        system("cls");
     printf("Введите число > ");
     scanf("%lf", &a);
     putchar('\n');
-
+  
     //нахождение количества цифр в введенном с экрана числе
     for (n = 1; a >= 10; n++)
     {
@@ -50,5 +53,7 @@ int main()
     }
     printf("Сумма цифр введенного с экрана числа: %d\n\n", k);
 
+    _getch();
+    }
     return 0;
 }

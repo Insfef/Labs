@@ -1,9 +1,9 @@
-﻿// Lab8-B.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿
 #define  _CRT_SECURE_NO_WARNINGS
 #include "windows.h"
 #include <iostream>
 
+#include <conio.h>
 int main()
 {
     SetConsoleCP(1251);
@@ -15,10 +15,14 @@ int main()
     int nep[100];
     c = 5;
 
+    for (i = 0; i < c; nep[i++] = rand() % 9);
+
+    while (true)
+    {
+        system("cls");
+
     printf("Удалить или Добавить? (0/1) >> ");
     scanf("%d", &nm);
-    
-    for (i = 0; i < c; nep[i++] = rand() % 9);
 
     for (i = 0, n = 1; i < c; i++, n++)
     {
@@ -97,5 +101,6 @@ int main()
         }
 
     printf("\n\n");
-
+    _getch();
+    }
 }
