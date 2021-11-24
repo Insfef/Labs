@@ -9,17 +9,14 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-
     int a, b, c, d, j, k, i;
     int n, ne, nk, ni, nn, nm;
 
     int nep[100];
     c = 5;
 
-
     printf("Удалить или Добавить? (0/1) >> ");
     scanf("%d", &nm);
-   
     
     for (i = 0; i < c; nep[i++] = rand() % 9);
 
@@ -32,10 +29,6 @@ int main()
     printf("\n\n");
     printf("Введите количество елементов >> ");
     scanf("%d", &ne);
-    //ne = 1;
-    //ni = 1;
-    //printf("Введите индекс, на место которого вы хотите поместить елемент # > ");
-    //scanf("%d", &ni);
 
     printf("\n\n");
 
@@ -73,8 +66,6 @@ int main()
 
         }
 
-
-
         if (nm == 0)
         {
 
@@ -103,26 +94,8 @@ int main()
             }
 
 
-
         }
 
-
-
-
-
-
-
     printf("\n\n");
-
-    /*for (i = 0, n = 1; i < c + 1; i++, n++)
-    {
-        printf("%d.)%-3d ", n, nep[i]);
-
-    }
-    */
-
-
-    //printf("Введите число для элемента # > ");
-    //scanf("%d", &nk);
 
 }
