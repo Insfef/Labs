@@ -8,9 +8,10 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    long c, d, n, i, j, k;
+    long c, d, n, j, k, y;
     double a, f, g, h;
     long b;
+    int i;
     while (true)
     {
 
@@ -26,8 +27,8 @@ int main()
     printf("Количество цифр в введенном с экрана числе: %d\n\n", n);
 
     a += 0.000000000000001;
-    int nep[15];
-
+    int nep[9];
+    int iffy[100];
     //заполнение одномерного массива цифрами введенного с экрана числа
     for (i = 0; i < n; i++)
     {
@@ -40,12 +41,20 @@ int main()
     
     //печать введенного с экрана числа в обратном порядке
     printf("Введенное число записанное в обратном порядке: ");
-    for (i = n - 1; i >= 0; i--)
+    for (i = n - 1, y = 0; i >= 0; i--, y++)
     {
-        printf("%d", nep[i]);
+        iffy[y] = nep[i];
     }
+    int h = n;
+    for (i = 0, y = 0; i < n; i++, h--)
+    {
+        for (j = 0, d = 1; j < h - 1; j++, d *= 10);
+        y += iffy[i] * d;
+
+    }
+
+    printf("%d", y);
     printf("\n\n");
-    
     //сумма цифр введенного с экрана числа
     for (i = 0, k = nep[i]; i < (n - 1); i++)
     {

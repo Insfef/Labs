@@ -21,86 +21,89 @@ int main()
     {
         system("cls");
 
-    printf("Удалить или Добавить? (0/1) >> ");
-    scanf("%d", &nm);
+        printf("Удалить или Добавить? (0/1) >> ");
+        scanf("%d", &nm);
 
-    for (i = 0, n = 1; i < c; i++, n++)
-    {
-         printf("%d.)%-3d ", n, nep[i]);
+        for (i = 0, n = 1; i < c; i++, n++)
+        {
+            printf("%d.)%-3d ", n, nep[i]);
 
-    }
+        }
 
-    printf("\n\n");
-    printf("Введите количество елементов >> ");
-    scanf("%d", &ne);
+        printf("\n\n");
+        printf("Введите количество елементов >> ");
+        scanf("%d", &ne);
 
-    printf("\n\n");
+        printf("\n\n");
 
         if (nm == 1)
         {
 
+            c += ne;
 
-            for (b = 0; b < ne; n++)
+
+            if (ne == 1)
+            printf("Введите индекс, на место которого вы хотите поместить елемент >> ");
+            else if (ne > 1)
+            printf("Введите индекс c которого будет добавлено заданное вами количество елементов >> ");
+
+            scanf("%d", &ni);
+            ni -= 1;
+            printf("\n\n");
+            for (i = c; i > ni; i--)
             {
-                c++;
+                nep[i] = nep[i - ne];
+            }
 
-                printf("Введите индекс, на место которого вы хотите поместить елемент >> ");
-                scanf("%d", &ni);
+            if (ne == 1)
+            printf("Введите число для элемента, который вы хотите поместить >> ");
+            else if (ne > 1)
+            printf("Введите число для элементов, которые вы хотите поместить >> ");
 
-                printf("\n\n");
-                for (i = c; i >= ni; i--)
-                {
-                    nep[i] = nep[i - 1];
-                }
-
-                printf("Введите число для элемента, который вы хотите поместить >> ");
-                scanf("%d", &nk);
+            scanf("%d", &nk);
+            for (i = ni; i < (ni + ne); i++)
                 nep[i] = nk;
 
-                printf("\n\n");
-                for (i = 0, n = 1; i < c; i++, n++)
-                {
-                    printf("%d.)%-3d ", n, nep[i]);
+            printf("\n\n");
+            for (i = 0, n = 1; i < c; i++, n++)
+            {
+                printf("%d.)%-3d ", n, nep[i]);
 
-                }
-                b++;
-
-                printf("\n\n");
             }
+
+            printf("\n\n");
 
         }
 
         if (nm == 0)
         {
 
-            for (b = 0; b < ne; n++)
+            c -= ne;
+
+            if (ne == 1)
+            printf("Введите индекс елемента, который вы хотите удалить >> ");
+            else if (ne > 1)
+            printf("Введите индекс c которого будет удалено заданное вами количество елементов >> ");
+            scanf("%d", &ni);
+            ni -= 1;
+            for (i = ni; i <= c; i++)
             {
-                c--;
-
-                printf("Введите индекс елемента, который вы хотите удалить >> ");
-                scanf("%d", &ni);
-
-                printf("\n\n");
-                for (i = ni; i <= c; i++)
-                {
-                    nep[i - 1] = nep[i];
-                }
-
-                printf("\n\n");
-                for (i = 0, n = 1; i < c; i++, n++)
-                {
-                    printf("%d.)%-3d ", n, nep[i]);
-
-                }
-                b++;
-
-                printf("\n\n");
+                nep[i] = nep[i + ne];
             }
+
+            printf("\n\n");
+            for (i = 0, n = 1; i < c; i++, n++)
+            {
+                printf("%d.)%-3d ", n, nep[i]);
+
+            }
+
+            printf("\n\n");
 
 
         }
 
-    printf("\n\n");
-    _getch();
+        printf("\n\n");
+        _getch();
     }
 }

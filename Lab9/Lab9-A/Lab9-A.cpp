@@ -22,7 +22,7 @@ int main()
     {
         for (j = 0; j < S; j++)
         {
-            nepsi[i][j] = rand() % 100;
+            nepsi[i][j] = rand() % 10;
             nep[i][j] = nepsi[i][j];
             printf("%3d", nep[i][j]);
         }
