@@ -90,14 +90,14 @@ int main()
         {
             for (j = 0; j < v; j++)
             {
-                for (b = 0, n = 0, a = 0; n < cc; n++, b++)
+                for (b = 0, n = 0, a = 0; n < c; n++, b++)
                 {
                     if (b >= ss)
                         d = 0;
                     else
                         d = nep[b][j];
 
-                        if (i >= cc)
+                        if (i >= s)
                             g = 0;
                         else
                             g = iffy[i][b];

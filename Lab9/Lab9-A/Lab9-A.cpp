@@ -4,6 +4,8 @@
 #include "windows.h"
 #define S 9
 
+#include <ctime>
+
  /* матрица */
 int nepsi[S][S];
 
@@ -17,6 +19,7 @@ int main()
     int i, a, b, ii, jj;
     int j;
 
+    srand(time(0));
     printf("Исходный массив\n\n");
     for (i = 0; i < S; i++)
     {
@@ -35,7 +38,7 @@ int main()
     for (i = 0; i < S; i++)
     {
 
-        for (j = 0, a = 0; j < S - 1; j++)
+        for (j = 0, a = 0; j < S; j++)
         {
 
             if (a < nep[i][j])
@@ -66,11 +69,11 @@ int main()
     printf("\n\n");
     printf("Задание Б\n");
 
-    //поменять местами елемент с минимальным значеним в каждом столбце с первым елементом этого же столбца
+    //поменять местами елемент с минимальным значеним в каждом столбце с последним елементом этого же столбца
     for (j = 0; j < S; j++)
     {
 
-        for (i = 0, a = 100; i < S - 1; i++)
+        for (i = 0, a = 100; i < S; i++)
         {
 
             if (a > nepsi[i][j])
@@ -81,8 +84,8 @@ int main()
             }
 
         }
-        b = nepsi[0][j];
-        nepsi[0][j] = a;
+        b = nepsi[S-1][j];
+        nepsi[S-1][j] = a;
         nepsi[ii][jj] = b;
 
     }
