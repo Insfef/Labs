@@ -24,7 +24,7 @@ int nep(int a[m][n])
 	return a[m][n];
 }
 
-void comp(int a[m][n])
+int comp(int a[m][n])
 {
 	int i, j, k, b;
 
@@ -41,8 +41,7 @@ void comp(int a[m][n])
 		}
 	}
 
-
-	printf("Положительных чисел в строке: %3d", b);
+	return b;
 
 }
 
@@ -53,6 +52,7 @@ int main()
 	SetConsoleOutputCP(1251);
 
 	int k = n * m;
+	int kk;
 
 	int nepu[m][n];
 
@@ -64,7 +64,9 @@ int main()
 
 		printf("\n");
 
-		comp(nepu);
+		kk = comp(nepu);
+
+		printf("Положительных чисел в строке: %3d", kk);
 
 		_getch();
 	}
