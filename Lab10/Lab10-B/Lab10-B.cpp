@@ -28,7 +28,7 @@ int comp(int a[m][n], int c)
 {
 	int i, j, k, b;
 
-	for (i = c - 1, b = 0; i == c - 1; i++)
+	for (i = c, b = 0; i == c; i++)
 	{
 		for (j = 0; j < n; j++)
 		{
@@ -36,9 +36,7 @@ int comp(int a[m][n], int c)
 				b++;
 		}
 	}
-
 	return b;
-
 }
 
 
