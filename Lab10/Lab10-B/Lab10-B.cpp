@@ -24,15 +24,11 @@ int nep(int a[m][n])
 	return a[m][n];
 }
 
-int comp(int a[m][n])
+int comp(int a[m][n], int c)
 {
 	int i, j, k, b;
 
-
-	printf("Введите номер строки ");
-	cin >> k;
-
-	for (i = k - 1, b = 0; i == k - 1; i++)
+	for (i = c - 1, b = 0; i == c - 1; i++)
 	{
 		for (j = 0; j < n; j++)
 		{
@@ -63,10 +59,12 @@ int main()
 		nep(nepu);
 
 		printf("\n");
-
-		kk = comp(nepu);
-
-		printf("Положительных чисел в строке: %3d", kk);
+		
+		for (int i = 0; i < m; i++)
+		{
+			kk = comp(nepu, i);
+			printf("Положительных чисел в строке #%d: %d \n", i + 1, kk);
+		}
 
 		_getch();
 	}
