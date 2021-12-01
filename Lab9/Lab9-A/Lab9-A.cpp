@@ -2,7 +2,7 @@
 //#define  _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include "windows.h"
-#define S 9
+#define S 5
 
 #include <ctime>
 

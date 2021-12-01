@@ -7,7 +7,6 @@ int iffy(int a[])
 {
 	int i, j, k, b, c, d;
 	int iffy[m][n];
-	int comp[m];
 
 	printf("Начальный двумерный массив:\n\n");
 	for (i = 0, k = 0; i < m; i++)
@@ -22,10 +21,7 @@ int iffy(int a[])
 		printf("\n");
 	}
 
-
-
 	printf("\n\n");
-
 
 	printf("Обработанный двумерный массив:\n\n"); 
 
