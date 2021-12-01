@@ -3,7 +3,7 @@
 #include <conio.h>
 #define  _CRT_SECURE_NO_WARNINGS
 using namespace std;
-char nep(int a, int b)
+int nep(int a, int b)
 {
 	char iffy;
 	if (a > b)
