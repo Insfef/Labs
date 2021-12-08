@@ -5,9 +5,25 @@
 using namespace std;
 
 #define M 1000	// Количество циклов
-#define N 45
+#define N 10
 #define I 100
 
+int fill_arr_nep(int arr[])
+{
+	for (int i = 0; i < N; i++)
+	{
+		arr[i] = i;
+	}
+	return arr[N];
+}
+int fill_arr_nepr(int arr[])
+{
+	for (int i = 0; i < N; i++)
+	{
+		arr[i] = I - i;
+	}
+	return arr[N];
+}
 int copy_arr(int s_arr[], int arr[])
 {
 	for (int i = 0; i < N; i++)
@@ -70,10 +86,12 @@ int counting_sort(int arr[], int num_arr[])
 
 	for (int i = 0, j = 0; i < I; i++)
 	{
-		int b = 0;
-		for (; b < num_arr[i]; b++, j++)
+		if (num_arr[i] > 0)
 		{
 			arr[j] = i;
+			num_arr[i]--;
+			i--;
+			j++;
 		}
 	}
 
@@ -133,5 +151,56 @@ int main()
 
 	printf("\n\n\n");
 
+
+
+
+
+
+
+
+	int s_arrc[N];
+	int arrc[N];
+	int num_arrc[I];
+	fill_csort_arr(num_arrc);
+	fill_arr(s_arrc);
+	copy_arr(s_arrc, arrc);
+
+	for (int i = 0; i < N; i++)
+	{
+		printf("%3d", arrc[i]);
+	}
+
+	printf("\n\n\n");
+	for (int i = 0; i < M; i++)
+	{
+		copy_arr(s_arrc, arrc);
+
+		auto start = chrono::high_resolution_clock::now();
+
+
+		counting_sort(arrc, num_arrc);
+
+
+		auto end = chrono::high_resolution_clock::now();
+		chrono::duration<double> duration = end - start;
+
+		dur_arr[i] = duration.count();
+	}
+
+	// Вывод результата
+	for (int i = 0; i < M; i++)
+	{
+		if (i > 0) aver_dur += dur_arr[i];
+	}
+	printf("Duration a = %.7f s", aver_dur / (M - 1));
+
+	printf("\n\n\n");
+	for (int i = 0; i < N; i++)
+	{
+		printf("%3d", arrc[i]);
+	}
+	printf("\n");
+
+	printf("\n\n\n");
 
 }
