@@ -334,7 +334,20 @@ int main()
 	{
 		copy_arr(s_arrc, arrc);
 		auto start = chrono::high_resolution_clock::now();
-		counting_sort(arrc, num_arrc);
+		/*counting_sort(arrc, num_arrc);*/
+		for (int i = 0; i < N; i++)
+			num_arrc[arrc[i]]++;
+
+		for (int i = 0, j = 0; i < I; i++)
+		{
+			if (num_arrc[i] > 0)
+			{
+				arrc[j] = i;
+				num_arrc[i]--;
+				i--;
+				j++;
+			}
+		}
 		auto end = chrono::high_resolution_clock::now();
 		chrono::duration<double> duration = end - start;
 		dur_arr[i] = duration.count();
@@ -358,7 +371,20 @@ int main()
 	{
 		copy_arr(s_arrc, arrc);
 		auto start = chrono::high_resolution_clock::now();
-		counting_sort(arrc, num_arrc);
+		/*counting_sort(arrc, num_arrc);*/
+		for (int i = 0; i < N; i++)
+			num_arrc[arrc[i]]++;
+
+		for (int i = 0, j = 0; i < I; i++)
+		{
+			if (num_arrc[i] > 0)
+			{
+				arrc[j] = i;
+				num_arrc[i]--;
+				i--;
+				j++;
+			}
+		}
 		auto end = chrono::high_resolution_clock::now();
 		chrono::duration<double> duration = end - start;
 		dur_arr[i] = duration.count();
