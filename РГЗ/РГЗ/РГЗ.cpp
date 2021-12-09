@@ -6,8 +6,8 @@
 using namespace std;
 
 #define M 1000	// Количество циклов
-#define N 10
-#define I 10
+#define N 45
+#define I 100
 
 void print_arr(int arr[])
 {
@@ -59,16 +59,25 @@ int swap(int arr[], int a, int b)
 }
 int shuttle_sort(int arr[])
 {
-	for (int i = 1; i < N; i++) {
-		if (arr[i] < arr[i - 1]) {
-			swap(arr, i, i - 1);
-			for (int j = i - 1; (j - 1) >= 0; j--) {
-				if (arr[j] < arr[j - 1]) {
-					swap(arr, j, j - 1);
+	for (int i = 1; i < N; i++) 
+	{
+		if (arr[i] < arr[i - 1]) 
+		{
+			/*swap(arr, i, i - 1);*/
+			arr[i] = arr[i - 1] + arr[i];
+			arr[i - 1] = arr[i] - arr[i - 1];
+			arr[i] = arr[i] - arr[i - 1];
+			for (int j = i - 1; (j - 1) >= 0; j--) 
+			{
+				if (arr[j] < arr[j - 1]) 
+				{
+					/*swap(arr, j, j - 1);*/
+					arr[j] = arr[j - 1] + arr[j];
+					arr[j - 1] = arr[j] - arr[j - 1];
+					arr[j] = arr[j] - arr[j - 1];
 				}
-				else {
+				else
 					break;
-				}
 			}
 		}
 	}
@@ -85,13 +94,7 @@ int fill_csort_arr(int arr[])
 int counting_sort(int arr[], int num_arr[])
 {
 	for (int i = 0; i < N; i++)
-	{
-		for (int j = 0; j < I; j++)
-		{
-			if (j == arr[i])
-				num_arr[j] += 1;
-		}
-	}
+		num_arr[arr[i]]++;
 
 	for (int i = 0, j = 0; i < I; i++)
 	{
@@ -103,7 +106,34 @@ int counting_sort(int arr[], int num_arr[])
 			j++;
 		}
 	}
+	return arr[N];
+}
 
+double avertime_swap(double arr[], int a, int b)
+{
+	arr[a] = arr[b] + arr[a];
+	arr[b] = arr[a] - arr[b];
+	arr[a] = arr[a] - arr[b];
+	return arr[N];
+}
+double avertime_sort(double arr[])
+{
+	for (int i = 1; i < N; i++)
+	{
+		if (arr[i] < arr[i - 1])
+		{
+			avertime_swap(arr, i, i - 1);
+			for (int j = i - 1; (j - 1) >= 0; j--)
+			{
+				if (arr[j] < arr[j - 1])
+				{
+					avertime_swap(arr, j, j - 1);
+				}
+				else
+					break;
+			}
+		}
+	}
 	return arr[N];
 }
 
@@ -125,20 +155,43 @@ int main()
 	{
 		copy_arr(s_arr, arr);
 		auto start = chrono::high_resolution_clock::now();
-		shuttle_sort(arr);
+		/*shuttle_sort(arr);*/
+		for (int i = 1; i < N; i++)
+		{
+			if (arr[i] < arr[i - 1])
+			{
+				/*swap(arr, i, i - 1);*/
+				arr[i] = arr[i - 1] + arr[i];
+				arr[i - 1] = arr[i] - arr[i - 1];
+				arr[i] = arr[i] - arr[i - 1];
+				for (int j = i - 1; (j - 1) >= 0; j--)
+				{
+					if (arr[j] < arr[j - 1])
+					{
+						/*swap(arr, j, j - 1);*/
+						arr[j] = arr[j - 1] + arr[j];
+						arr[j - 1] = arr[j] - arr[j - 1];
+						arr[j] = arr[j] - arr[j - 1];
+					}
+					else
+						break;
+				}
+			}
+		}
 		auto end = chrono::high_resolution_clock::now();
 		chrono::duration<double> duration = end - start;
 		dur_arr[i] = duration.count();
 	}
-	// Вывод результата
-	for (int i = 0; i < M; i++)
+	avertime_sort(dur_arr);
+	for (int i = (M/5); i < (M-(M/5)); i++)
 	{
-		if (i > 0) aver_dur += dur_arr[i];
+		aver_dur += dur_arr[i];
 	}
 	printf("Отсорт. массив");
 	print_arr(arr);
+	printf("Среднее значение (неупоряд.) = %.8f s\n\n\n\n\n", aver_dur / (M - 2 * (M/5)));
+	aver_dur = 0;
 
-	printf("Среднее значение (неупоряд.) = %.7f s\n\n\n\n\n", aver_dur / (M - 1) );
 
 	fill_arr_nep(s_arr);
 	printf("Упоряд. массив");
@@ -147,49 +200,88 @@ int main()
 	{
 		copy_arr(s_arr, arr);
 		auto start = chrono::high_resolution_clock::now();
-		shuttle_sort(arr);
+		/*shuttle_sort(arr);*/
+		for (int i = 1; i < N; i++)
+		{
+			if (arr[i] < arr[i - 1])
+			{
+				/*swap(arr, i, i - 1);*/
+				arr[i] = arr[i - 1] + arr[i];
+				arr[i - 1] = arr[i] - arr[i - 1];
+				arr[i] = arr[i] - arr[i - 1];
+				for (int j = i - 1; (j - 1) >= 0; j--)
+				{
+					if (arr[j] < arr[j - 1])
+					{
+						/*swap(arr, j, j - 1);*/
+						arr[j] = arr[j - 1] + arr[j];
+						arr[j - 1] = arr[j] - arr[j - 1];
+						arr[j] = arr[j] - arr[j - 1];
+					}
+					else
+						break;
+				}
+			}
+		}
 		auto end = chrono::high_resolution_clock::now();
 		chrono::duration<double> duration = end - start;
 		dur_arr[i] = duration.count();
 	}
-
-	for (int i = 0; i < M; i++)
+	avertime_sort(dur_arr);
+	for (int i = (M / 5); i < (M - (M / 5)); i++)
 	{
-		if (i > 0) aver_dur += dur_arr[i];
+		aver_dur += dur_arr[i];
 	}
 	printf("Отсорт. массив");
 	print_arr(arr);
-	printf("\nСреднее значение (упоряд.) = %.7f s\n\n\n\n\n", aver_dur / (M - 1));
-
+	printf("\nСреднее значение (упоряд.) = %.8f s\n\n\n\n\n", aver_dur / (M - 2 * (M / 5)));
+	aver_dur = 0;
 
 
 	printf("Упоряд. обрат. массив");
 	fill_arr_nepr(s_arr);
-
-
 	print_arr(s_arr);
 	for (int i = 0; i < M; i++)
 	{
 		copy_arr(s_arr, arr);
 		auto start = chrono::high_resolution_clock::now();
-		shuttle_sort(arr);
+		/*shuttle_sort(arr);*/
+		for (int i = 1; i < N; i++)
+		{
+			if (arr[i] < arr[i - 1])
+			{
+				/*swap(arr, i, i - 1);*/
+				arr[i] = arr[i - 1] + arr[i];
+				arr[i - 1] = arr[i] - arr[i - 1];
+				arr[i] = arr[i] - arr[i - 1];
+				for (int j = i - 1; (j - 1) >= 0; j--)
+				{
+					if (arr[j] < arr[j - 1])
+					{
+						/*swap(arr, j, j - 1);*/
+						arr[j] = arr[j - 1] + arr[j];
+						arr[j - 1] = arr[j] - arr[j - 1];
+						arr[j] = arr[j] - arr[j - 1];
+					}
+					else
+						break;
+				}
+			}
+		}
 		auto end = chrono::high_resolution_clock::now();
 		chrono::duration<double> duration = end - start;
 		dur_arr[i] = duration.count();
 	}
-
-	// Вывод результата
-	for (int i = 0; i < M; i++)
+	avertime_sort(dur_arr);
+	for (int i = (M / 5); i < (M - (M / 5)); i++)
 	{
-		if (i > 0) aver_dur += dur_arr[i];
+		aver_dur += dur_arr[i];
 	}
 	printf("Отсорт. массив");
 	print_arr(arr);
-	printf("\nСреднее значение (упоряд. обрат.) = %.7f s\n\n\n\n\n", aver_dur / (M - 1));
-
-
+	printf("\nСреднее значение (упоряд. обрат.) = %.8f s\n\n\n\n\n", aver_dur / (M - 2 * (M / 5)));
 	printf("\n\n\n");
-
+	aver_dur = 0;
 
 
 
@@ -205,20 +297,34 @@ int main()
 	{
 		copy_arr(s_arrc, arrc);
 		auto start = chrono::high_resolution_clock::now();
-		counting_sort(arrc, num_arrc);
+		/*counting_sort(arrc, num_arrc);*/
+		for (int i = 0; i < N; i++)
+			num_arrc[arrc[i]]++;
+
+		for (int i = 0, j = 0; i < I; i++)
+		{
+			if (num_arrc[i] > 0)
+			{
+				arrc[j] = i;
+				num_arrc[i]--;
+				i--;
+				j++;
+			}
+		}
 		auto end = chrono::high_resolution_clock::now();
 		chrono::duration<double> duration = end - start;
 		dur_arr[i] = duration.count();
 	}
 	printf("Отсорт. массив");
 	print_arr(arrc);
-	// Вывод результата
-	for (int i = 0; i < M; i++)
+	avertime_sort(dur_arr);
+	for (int i = (M / 5); i < (M - (M / 5)); i++)
 	{
-		if (i > 0) aver_dur += dur_arr[i];
+		aver_dur += dur_arr[i];
 	}
-	printf("Среднее значение (неупоряд.) = %.7f s", aver_dur / (M - 1));
+	printf("Среднее значение (неупоряд.) = %.8f s", aver_dur / (M - 2 * (M / 5)));
 	printf("\n\n\n\n\n");
+	aver_dur = 0;
 
 
 	fill_arr_nep(s_arrc);
@@ -233,16 +339,17 @@ int main()
 		chrono::duration<double> duration = end - start;
 		dur_arr[i] = duration.count();
 	}
-
-	// Вывод результата
 	printf("Отсорт. массив");
 	print_arr(arrc);
-	for (int i = 0; i < M; i++)
+	avertime_sort(dur_arr);
+	for (int i = (M / 5); i < (M - (M / 5)); i++)
 	{
-		if (i > 0) aver_dur += dur_arr[i];
+		aver_dur += dur_arr[i];
 	}
-	printf("Среднее значение (упоряд.) = %.7f s", aver_dur / (M - 1));
+	printf("Среднее значение (упоряд.) = %.8f s", aver_dur / (M - 2 * (M / 5)));
 	printf("\n\n\n\n\n");
+	aver_dur = 0;
+
 
 	fill_arr_nepr(s_arrc);
 	printf("Упоряд. обрат. массив");
@@ -256,16 +363,14 @@ int main()
 		chrono::duration<double> duration = end - start;
 		dur_arr[i] = duration.count();
 	}
-
-	// Вывод результата
-	for (int i = 0; i < M; i++)
+	avertime_sort(dur_arr);
+	for (int i = (M / 5); i < (M - (M / 5)); i++)
 	{
-		if (i > 0) aver_dur += dur_arr[i];
+		aver_dur += dur_arr[i];
 	}
 	printf("Отсорт. массив");
 	print_arr(arrc);
-	printf("\nСреднее значение (упоряд. обрат.) = %.7f s", aver_dur / (M - 1));
-
+	printf("\nСреднее значение (упоряд. обрат.) = %.8f s", aver_dur / (M - 2 * (M / 5)));
 	printf("\n\n\n");
 
 }
