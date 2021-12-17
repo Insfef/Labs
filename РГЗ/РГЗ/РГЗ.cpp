@@ -6,7 +6,7 @@
 using namespace std;
 
 #define M 1400	// Количество циклов
-#define N 45
+#define N 30
 #define I 100
 
 void print_arr(int arr[])
@@ -401,58 +401,6 @@ int main()
 	printf("\nСреднее значение (упоряд. обрат.) = %.8f s", aver_dur / (M - m));
 	printf("\n\n\n\n\n");
 	aver_dur = 0;
-
-
-
-
-	//fill_csort_arr(num_arrc);
-	//fill_arr(s_arrc);
-	//copy_arr(s_arrc, arrc);
-	//printf("Неупоряд. массив");
-	//print_arr(s_arrc);
-	//for (int i = 0; i < M; i++)
-	//{
-	//	copy_arr(s_arrc, arrc);
-	//	auto start = chrono::high_resolution_clock::now();
-	//	/*counting_sort(arrc, num_arrc);*/
-	//	for (int i = 0; i < N; i++)
-	//		num_arrc[arrc[i]]++;
-
-	//	for (int i = 0, j = 0; i < I; i++)
-	//	{
-	//		if (num_arrc[i] > 0)
-	//		{
-	//			arrc[j] = i;
-	//			num_arrc[i]--;
-	//			i--;
-	//			j++;
-	//		}
-	//	}
-	//	auto end = chrono::high_resolution_clock::now();
-	//	chrono::duration<double> duration = end - start;
-	//	dur_arr[i] = duration.count();
-	//}
-	//printf("Отсорт. массив");
-	//print_arr(arrc);
-	//avertime_sort(dur_arr);
-	//for (int i = m; i < (M - m); i++)
-	//{
-	//	aver_dur += dur_arr[i];
-	//}
-	//printf("Среднее значение (неупоряд.) = %.8f s", aver_dur / (M - 2 * m));
-	//printf("\n\n\n\n\n");
-	//aver_dur = 0;
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
