@@ -14,15 +14,11 @@ struct lists {
 
 void input(struct lists nep[]) {
 
-	int ii, nn, comp;
-	char nep1[6] = "Папка";
-	char nep2[7] = "Бумага";
-	char nep3[12] = "Калькулятор";
+	int ii, nn;
 
 	for (int n = 0; n < 10; n++) {
-		comp = rand() % 3;
 
-		for (ii = 14, nn = 0; nn < ii; nn++)
+		for (ii = 15, nn = 0; nn < ii; nn++)
 
 			nep[n].name[nn] = ' ';
 		nep[n].type = ' ';
@@ -31,8 +27,9 @@ void input(struct lists nep[]) {
 
 	}
 
+	cout << "(Вводите данные через пробел)" << endl;
 	for (int n = 0; n < 10; n++) {
-		printf("%d. Введите: название, школу, количество, площадь >",
+		printf("%d. Введите: Название(14 символов макс.), Тип (1 символ), Цена за шт., Мин. кол-во в партии >",
 			n + 1);
 		scanf_s("%s", nep[n].name, sizeof(nep[n].name));
 		if (!strcmp(nep[n].name, "***")) break;
@@ -84,13 +81,13 @@ void input_rand(struct lists nep[]) {
 }
 
 void sort(struct lists nep[]) {
-	struct lists x;
+	lists x;
 	int i, j, m, n = 10;
 
 	for (i = 0; i < n - 1; i++) {
 		m = i;
 		for (j = i + 1; j < n; j++)
-			if (strcmp(nep[m].name, nep[j].name) > 0) m = j;
+			if (strcmp(nep[m].name, nep[j].name) < 0) m = j;
 		if (m > i) {
 
 			x = nep[i];
@@ -123,11 +120,7 @@ int main(void) {
 	srand(time(NULL));
 	setlocale(LC_ALL, "ru");
 	std::system("chcp 1251");
-	struct lists x;
-	int n;
-	int i, j;
-	int m;
-	int ans = 0;
+	int ans = 0, a = 0;
 
 	/*	Папка К 4,75 4
 	   Бумага К 13,90 10
@@ -135,7 +128,7 @@ int main(void) {
 
 	while (ans != 5)
 	{
-		printf("1 – ввод с экрана, 2 – случайное заполнение, 3 – сортировка, 4 – печать, 5 - закончить > ");
+		printf("1 – ввести вручную, 2 – случайно заполненить, 3 – сортировать, 4 – напечатать, 5 - закончить > ");
 		cin >> ans;
 		putchar('\n');
 		switch (ans) {
@@ -144,18 +137,28 @@ int main(void) {
 			printf("Чтобы закончить, введите \" *** \" \n");
 			input(nep);
 			system("CLS");
+			a = 1;
 			break;
 		case 2:
 			system("CLS");
 			input_rand(nep);
+			a = 1;
 			break;
 		case 3:
 			system("CLS");
 			sort(nep);
 			break;
 		case 4:
-			system("CLS");
-			prnt(nep);
+			if (a == 1)
+			{
+				system("CLS");
+				prnt(nep);
+			}
+			else
+			{
+				system("CLS");
+				cout << "таблица не была заполнена" << endl;
+			}
 			break;
 		}
 

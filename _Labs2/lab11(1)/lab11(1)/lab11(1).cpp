@@ -14,8 +14,8 @@ void print(int nep[])
 }
 
 int iffy(int nep[], int i) {
-	if (i == 4)
-		return nep[i];
+	if (i == 5)
+		return 1;
 
 	if (nep[i] % 2 == 1)
 		return nep[i] * iffy(nep, i + 1);
@@ -45,6 +45,8 @@ int main()
 			break;
 		case 2:
 			system("CLS");
+			print(nep);
+			putchar('\n');
 			cout << iffy(nep, 0) << endl;
 			break;
 
