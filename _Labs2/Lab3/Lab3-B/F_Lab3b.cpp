@@ -75,5 +75,5 @@ void nep_re(int* a, int s)
 
 	cout << "- Обработанный массив\n\n";
 
-
+	delete[] b, c, d;
 }
