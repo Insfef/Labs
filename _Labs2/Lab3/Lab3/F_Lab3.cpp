@@ -45,6 +45,6 @@ void print_nep(int* nep, int s)
 	for (int i = 0; i < s; i++) {
 		cout << *(nep + i) << "\t";
 	}
-	cout << "-\tИсходный массив";
+	cout << "-\tНачальный массив";
 	cout << endl << endl;
 }

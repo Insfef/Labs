@@ -14,7 +14,6 @@ void main()
 	int* gear = nep;
 	int* vert = new int[s];
 
-	cout << "Початковий масив: \n ";
 	//for (; nep < gear + s; nep++)
 	//{
 	//	*nep = rand() % 100 - 50;
