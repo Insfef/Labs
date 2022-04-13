@@ -62,11 +62,6 @@ int main()
 		}
 
 	}
-	//nep_a(nep);
-	//nep_b(nep);
-	//nep_c(nep);
-	//nep_d(nep);
-	//nep_e(nep);
-
+	delete[] nep;
 }
 

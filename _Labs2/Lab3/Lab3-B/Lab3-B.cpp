@@ -11,8 +11,6 @@ int main()
 	int s = 5;
 	int* nep = new int[s];
 
-	//nep_gen(nep, s);
-
 	int ans = 1;
 	while (ans == 1 || ans == 2)
 	{
@@ -32,6 +30,5 @@ int main()
 
 	}
 
-	//nep_re(nep, s);
-
+	delete[] nep;
 }
