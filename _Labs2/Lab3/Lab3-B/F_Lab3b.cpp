@@ -61,12 +61,23 @@ void nep_re(int* a, int s)
 	int i = 0;
 
 	for (; bn > 0; bn--, i++)
+	{
 		*(a + i + dn) = *(b - bn);
+		cout << *(b - bn) << "\t";
+	}
+	cout << "\t- Массив В\n\n";
 	for (; cn > 0; cn--, i++)
+	{
 		*(a + i + dn) = *(c - cn);
+		cout << *(c - cn) << "\t";
+	}
+	cout << "\t- Массив C\n\n";
 	for (; dn > 0; dn--, i++)
+	{
 		*(a + dn - 1) = *(d - dn);
-
+		cout << *(d - dn) << "\t";
+	}
+	cout << "\t- Массив D \n\n";
 
 	for (int i = 0; i < s; i++)
 	{
@@ -74,6 +85,5 @@ void nep_re(int* a, int s)
 	}
 
 	cout << "- Обработанный массив\n\n";
-
-	delete[] b, c, d;
+	delete[] c;
 }
