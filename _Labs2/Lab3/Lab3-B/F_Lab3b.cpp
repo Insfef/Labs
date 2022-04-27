@@ -35,6 +35,7 @@ void nep_re(int* a, int s)
 	int* b = new int[bn];
 	int* c = new int[cn];
 	int* d = new int[dn];
+	int* bb = b, * cc = c, * dd = d;
 	for (int i = 0; i < s; i++)
 	{
 		if (*(a + i) < 0)
@@ -84,6 +85,7 @@ void nep_re(int* a, int s)
 		cout << *(a + i) << "\t";
 	}
 
+	c = cc, b = bb, d = dd;
 	cout << "- Обработанный массив\n\n";
-	delete[] c;
+	delete[] c, b, d, cc, bb, dd;
 }
