@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <iostream>
 #include <time.h>
-#define k 1
+#define k 2
 
 using namespace std;
 #if k == 1
