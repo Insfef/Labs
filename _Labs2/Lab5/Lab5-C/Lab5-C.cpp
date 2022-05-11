@@ -52,15 +52,13 @@ int main()
                     switch (ans2)
                     {
                     case 1:
-                        uni = bubble_sort;
+                        sort_nep(A, S, bubble_sort);
                         break;
                     case 2:
-                        uni = shuttle_sort;
+                        sort_nep(A, S, shuttle_sort);
                         break;
                     }
                 }
-
-                sort_nep(A, S, uni); //функция, которая исполнаяет одну из функций сортировок
                 cout << "\n -Отсортированный массив элементов\n _ ";
                 nep_out(A, S);
 
