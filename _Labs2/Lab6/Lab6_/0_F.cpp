@@ -1,6 +1,6 @@
 ﻿#include "0_H.h"
 
-int compa(char* S1, char* S2)
+int compa(const char* S1, const char* S2)
 {
     while (true) {
         if (*S1 == ' ')
