@@ -1,6 +1,6 @@
 #include "H_B.h"
-#define k1 20
-#define k2 10
+#define k1 10
+#define k2 5
 
 void nep_gen(int** nep, int S)
 {

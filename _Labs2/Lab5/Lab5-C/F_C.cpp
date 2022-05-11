@@ -12,17 +12,10 @@ void nep_out(int* nep, int S)
 {
     for (int i = 0; i < S; i++) {
         printf("%3d", *(nep + i));
-        /*if (i % S == S - 1) cout << '\n';*/
     }
     cout << "\n\n";
 }
 
-//void swap(int a, int b)
-//{
-//    a += b;
-//    b = a - b;
-//    a -= b;
-//}
 void swap(int* nep, int a, int b)
 {
     *(nep + a) = *(nep + b) + *(nep + a);

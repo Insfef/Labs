@@ -5,8 +5,8 @@ int main(void) {
     setlocale(LC_ALL, "ru");
 
     char S1[80] = "nep";
-    char S2[80] = " n e p ";
-    
+    char S2[80] = "n e p";
+
     for (int ans = 1; ans != 4;)
     {
 
@@ -20,8 +20,7 @@ int main(void) {
             system("CLS");
             cout << "   >>";
 
-            cin.ignore();
-            gets_s(S1);
+            scanf("  %[^\n]s ", S1);
 
             system("CLS");
             break;
@@ -30,8 +29,7 @@ int main(void) {
             system("CLS");
             cout << "   >>";
 
-            cin.ignore();
-            gets_s(S2);
+            scanf(" %[^\n]s ", S2);
 
             system("CLS");
             break;
