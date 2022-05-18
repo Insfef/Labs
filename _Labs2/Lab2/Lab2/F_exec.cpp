@@ -4,7 +4,7 @@
 using namespace std;
 
 #define DEBUG
-#define PRINT_TYPE 2
+#define PRINT_TYPE 1
 
 void exec(lists nep[]) {
 
