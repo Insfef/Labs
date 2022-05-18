@@ -94,7 +94,7 @@ void fnd(dat nep, int* k)
 
 	case 3:
 		char type;
-		cout << " Введите type >> ";
+		cout << " Введите тип >> ";
 		cin >> type;
 		prnt_up();
 		for (int i = 0; i < *k; i++)
@@ -108,7 +108,7 @@ void fnd(dat nep, int* k)
 		break;
 	case 4:
 		int price;
-		cout << " Введите price >> ";
+		cout << " Введите цену >> ";
 		cin >> price;
 		prnt_up();
 		for (int i = 0; i < *k; i++)
@@ -122,7 +122,7 @@ void fnd(dat nep, int* k)
 		break;
 	case 5:
 		int mink;
-		cout << " Введите mink >> ";
+		cout << " Введите мин. кол-во. >> ";
 		cin >> mink;
 		prnt_up();
 		for (int i = 0; i < *k; i++)
@@ -135,7 +135,6 @@ void fnd(dat nep, int* k)
 		prnt_down();
 		break;
 	}
-
 }
 
 void add(dat nep, int* k)
@@ -147,7 +146,7 @@ void add(dat nep, int* k)
 	if (*k < n || n < 1)
 	{
 		cout << "\t*Выбранный вами номер некорректен*\n\n";
-			return;
+		return;
 	}
 	n--;
 	list* temp = new list;
@@ -182,6 +181,11 @@ void dlt(dat nep, int* k)
 	cout << " Введите номер >> ";
 	int n;
 	cin >> n;
+	if (n > *k)
+	{
+		cout << "\t*Выбранный вами номер некорректен*\n\n";
+		return;
+	}
 	*k = *k - 1;
 	n--;
 	if (n == 0) {
@@ -211,12 +215,11 @@ void srt(dat nep, int* k)
 {
 	list* temp = head;
 	list* temp2 = temp->next;
-	list* temp3 = head;
+	list* temp3 = new list;
 	for (int i = 0; i < *k - 1; i++)
 	{
 		temp = head;
 		temp2 = temp->next;
-		temp3 = head;
 		for (int j = 0; j < *k - 1; j++)
 		{
 			if (compa(temp->nep.name, temp2->nep.name) > 0)

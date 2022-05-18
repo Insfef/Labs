@@ -3,7 +3,6 @@
 int main(void) {
 	srand(time(NULL));
 	setlocale(LC_ALL, "ru");
-	system("chcp 1251");
 
 	dat nep;
 	nep.mink = 1;
@@ -56,6 +55,7 @@ int main(void) {
 			fopen_s(&f, "t1.txt", "r");
 			nwl(nep, f, k);
 			fclose(f);
+			a = 1;
 			break;
 		}
 	}
