@@ -262,14 +262,21 @@ void dlt(dat nep, int* k)
 	n--;
 	if (n == 0) {
 		head = head->next;
+		head->prev = NULL;
 		delete temp_pos;
 	}
 	else {
+		list* temp = head;
 		for (int i = 0; i < n - 1; i++)
-			temp_pos = temp_pos->next;
-		list* temp = temp_pos->next;
-		temp_pos->next = temp->next;
-		delete temp;
+			temp = temp->next;
+		temp_pos = temp->next;
+		temp->next = temp_pos->next;
+		temp = temp_pos->next;
+		if (temp != NULL)
+			temp->prev = temp_pos->prev;
+		else
+			tail = temp;
+		delete temp_pos;
 	}
 	list* temp = new list;
 	temp = head;
