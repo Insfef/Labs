@@ -144,7 +144,7 @@
     <ClCompile Include="Lab8.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="0_H.h" />
+    <ClInclude Include="0_hdr.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="t1.txt" />
