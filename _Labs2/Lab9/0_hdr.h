@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <stdio.h>
 #include <string.h>
 #include <iostream>
@@ -20,13 +20,14 @@ struct list
 {
 	dat nep;
 	list* next;
+	list* prev;
 };
 
 void crt(dat nep, int* k);
 
-void prnt(dat nep, int* k);
+void prnt(dat nep, int* k, int type);
 
-void fnd(dat nep, int* k);
+void fnd(dat nep, int* k, int type);
 
 void add(dat nep, int* k);
 

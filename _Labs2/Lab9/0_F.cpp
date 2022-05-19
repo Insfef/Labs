@@ -1,4 +1,4 @@
-#include "0_hdr.h"
+ï»¿#include "0_hdr.h"
 
 list* head = NULL;
 list* tail = NULL;
@@ -8,12 +8,12 @@ void crt(dat nep, int* k)
 	for (int i = 0; i < *k; i++)
 		dlt_first(nep, k);
 	*k = 0;
-	cout << "(Ââîäèòå äàííûå ÷åðåç ïðîáåë)" << endl;
+	cout << "(Ð’Ð²Ð¾Ð´Ð¸Ñ‚Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ñ‡ÐµÑ€ÐµÐ· Ð¿Ñ€Ð¾Ð±ÐµÐ»)" << endl;
 	for (int n = 0; n < 20; n++, *k = *k + 1) {
 		list* temp = new list;
 
 		temp->nep.num = n + 1;
-		printf("%d. Ââåäèòå: Íàçâàíèå(14 ñèìâîëîâ ìàêñ.), Òèï (1 ñèìâîë), Öåíà çà øò., Ìèí. êîë-âî â ïàðòèè >",
+		printf("%d. Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ: ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ(14 ÑÐ¸Ð¼Ð²Ð¾Ð»Ð¾Ð² Ð¼Ð°ÐºÑ.), Ð¢Ð¸Ð¿ (1 ÑÐ¸Ð¼Ð²Ð¾Ð»), Ð¦ÐµÐ½Ð° Ð·Ð° ÑˆÑ‚., ÐœÐ¸Ð½. ÐºÐ¾Ð»-Ð²Ð¾ Ð² Ð¿Ð°Ñ€Ñ‚Ð¸Ð¸ >",
 			temp->nep.num);
 		scanf_s("%s", temp->nep.name, sizeof(temp->nep.name));
 		if (!compa(temp->nep.name, "***")) break;
@@ -22,123 +22,166 @@ void crt(dat nep, int* k)
 		scanf_s("%d", &temp->nep.mink);
 
 		if (head == NULL)
+		{
 			head = temp;
+			temp->prev = NULL;
+		}
 		else
+		{
 			tail->next = temp;
+			temp->prev = tail;
+		}
 		tail = temp;
 		temp->next = NULL;
 	}
 }
 
-void prnt(dat nep, int* k)
+void prnt(dat nep, int* k, int type)
 {
 	if (*k == 0) {
-		cout << "\t*Ñíà÷àëà íóæíî ñîçäàòü ñïèñîê*\n\n";
+		cout << "\t*Ð¡Ð½Ð°Ñ‡Ð°Ð»Ð° Ð½ÑƒÐ¶Ð½Ð¾ ÑÐ¾Ð·Ð´Ð°Ñ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº*\n\n";
 		return;
 	}
-	*k = 0;
-	list* temp;
-	temp = head;
-	prnt_up();
-	while (temp != NULL)
+	if (type == 1)
 	{
-		printf("| %-2d| %-19s | %-10c | %-18.2f | %-30d |\n",
-			temp->nep.num, temp->nep.name, temp->nep.type, temp->nep.price, temp->nep.mink);
-		temp = temp->next;
-		*k = *k + 1;
+		*k = 0;
+		list* temp;
+		temp = head;
+		prnt_up();
+		while (temp != NULL)
+		{
+			printf("| %-2d| %-19s | %-10c | %-18.2f | %-30d |\n",
+				temp->nep.num, temp->nep.name, temp->nep.type, temp->nep.price, temp->nep.mink);
+			temp = temp->next;
+			*k = *k + 1;
+		}
+		prnt_down();
 	}
-	prnt_down();
+	if (type == 2)
+	{
+		list* temp;
+		temp = tail;
+		prnt_up();
+		int i = 0;
+		while (temp != NULL)
+		{
+			printf("| %-2d| %-19s | %-10c | %-18.2f | %-30d |\n",
+				++i, temp->nep.name, temp->nep.type, temp->nep.price, temp->nep.mink);
+			temp = temp->prev;
+		}
+		prnt_down();
+	}
 }
 
-void fnd(dat nep, int* k)
+void fnd(dat nep, int* k, int type)
 {
 	if (*k == 0) {
-		cout << "\t*Ñíà÷àëà íóæíî ñîçäàòü ñïèñîê*\n\n";
+		cout << "\t*Ð¡Ð½Ð°Ñ‡Ð°Ð»Ð° Ð½ÑƒÐ¶Ð½Ð¾ ÑÐ¾Ð·Ð´Ð°Ñ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº*\n\n";
 		return;
 	}
 	list* temp;
-	temp = head;
 	int ans = 0;
-	while (ans < 1 || ans > 5)
-	{
-		cout << " 1. Íîìåð\n 2. Íàèìåíîâàíèå\n 3. Òèï\n 4. Öåíà\n 5. Ìèí. êîë-âî\n\n";
-		cout << "\tÂûáåðèòå êðèòåðèé, ïî êîòîðîìó õîòèòå îñóùåñòâèòü ïîèñê >> ";
+	while (ans < 1 || ans > 5){
+		cout << " 1. ÐÐ¾Ð¼ÐµÑ€\n 2. ÐÐ°Ð¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ð½Ð¸Ðµ\n 3. Ð¢Ð¸Ð¿\n 4. Ð¦ÐµÐ½Ð°\n 5. ÐœÐ¸Ð½. ÐºÐ¾Ð»-Ð²Ð¾\n\n";
+		cout << "\tÐ’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ ÐºÑ€Ð¸Ñ‚ÐµÑ€Ð¸Ð¹, Ð¿Ð¾ ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð¼Ñƒ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð¾ÑÑƒÑ‰ÐµÑÑ‚Ð²Ð¸Ñ‚ÑŒ Ð¿Ð¾Ð¸ÑÐº >> ";
 		cin >> ans;
 		system("CLS");
 		if (ans < 1 || ans > 5)
-			cout << "\t*Îøèáêà*\nÂû äîëæíû ââåñòè îäèíî èç ñëåäóþçèõ ÷èñåë:\n\n";
+			cout << "\t*ÐžÑˆÐ¸Ð±ÐºÐ°*\nÐ’Ñ‹ Ð´Ð¾Ð»Ð¶Ð½Ñ‹ Ð²Ð²ÐµÑÑ‚Ð¸ Ð¾Ð´Ð¸Ð½Ð¾ Ð¸Ð· ÑÐ»ÐµÐ´ÑƒÑŽÐ·Ð¸Ñ… Ñ‡Ð¸ÑÐµÐ»:\n\n";
 	}
+	if (type == 1)
+		temp = head;
+	else
+		temp = tail;
 	switch (ans)
 	{
 	case 1:
 		int n;
-		cout << " Ââåäèòå íîìåð >> ";
+		cout << " Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð¾Ð¼ÐµÑ€ >> ";
 		cin >> n;
-		for (int i = 0; i < *k; i++)
-		{
-			if (temp->nep.num == n)
-			{
+		for (int i = 0; i < *k; i++) {
+			if (temp->nep.num == n) {
 				prnt_once(temp);
 				break;
 			}
-			else
+			if (type == 1)
 				temp = temp->next;
+			else
+				temp = temp->prev;
 		}
 		break;
 	case 2:
 		char name[15];
-		cout << " Ââåäèòå íàèìåíîâàíèå >> ";
+		cout << " Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð°Ð¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ð½Ð¸Ðµ >> ";
 		cin >> name;
 		prnt_up();
-		for (int i = 0; i < *k; i++)
-		{
-			if (!compa(temp->nep.name, name))
+		for (int i = 0; i < *k; i++){
+			if (!compa(temp->nep.name, name)){
 				printf("| %-2d| %-19s | %-10c | %-18.2f | %-30d |\n",
 					temp->nep.num, temp->nep.name, temp->nep.type, temp->nep.price, temp->nep.mink);
-			temp = temp->next;
+				break;
+			}
+			if (type == 1)
+				temp = temp->next;
+			else
+				temp = temp->prev;
 		}
 		prnt_down();
 		break;
 
 	case 3:
 		char type;
-		cout << " Ââåäèòå òèï >> ";
+		cout << " Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‚Ð¸Ð¿ >> ";
 		cin >> type;
 		prnt_up();
-		for (int i = 0; i < *k; i++)
-		{
-			if (temp->nep.type == type)
+		for (int i = 0; i < *k; i++){
+			if (temp->nep.type == type){
 				printf("| %-2d| %-19s | %-10c | %-18.2f | %-30d |\n",
 					temp->nep.num, temp->nep.name, temp->nep.type, temp->nep.price, temp->nep.mink);
-			temp = temp->next;
+				break;
+			}
+			if (type == 1)
+				temp = temp->next;
+			else
+				temp = temp->prev;
 		}
 		prnt_down();
 		break;
 	case 4:
 		int price;
-		cout << " Ââåäèòå öåíó >> ";
+		cout << " Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ†ÐµÐ½Ñƒ >> ";
 		cin >> price;
 		prnt_up();
 		for (int i = 0; i < *k; i++)
 		{
-			if (temp->nep.price == price)
+			if (temp->nep.price == price) {
 				printf("| %-2d| %-19s | %-10c | %-18.2f | %-30d |\n",
 					temp->nep.num, temp->nep.name, temp->nep.type, temp->nep.price, temp->nep.mink);
-			temp = temp->next;
+				break;
+			}
+			if (type == 1)
+				temp = temp->next;
+			else
+				temp = temp->prev;
 		}
 		prnt_down();
 		break;
 	case 5:
 		int mink;
-		cout << " Ââåäèòå ìèí. êîë-âî. >> ";
+		cout << " Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¼Ð¸Ð½. ÐºÐ¾Ð»-Ð²Ð¾. >> ";
 		cin >> mink;
 		prnt_up();
 		for (int i = 0; i < *k; i++)
 		{
-			if (temp->nep.mink == mink)
+			if (temp->nep.mink == mink) {
 				printf("| %-2d| %-19s | %-10c | %-18.2f | %-30d |\n",
 					temp->nep.num, temp->nep.name, temp->nep.type, temp->nep.price, temp->nep.mink);
-			temp = temp->next;
+				break;
+			}
+			if (type == 1)
+				temp = temp->next;
+			else
+				temp = temp->prev;
 		}
 		prnt_down();
 		break;
@@ -148,39 +191,51 @@ void fnd(dat nep, int* k)
 void add(dat nep, int* k)
 {
 	if (*k == 0) {
-		cout << "\t*Ñíà÷àëà íóæíî ñîçäàòü ñïèñîê*\n\n";
+		cout << "\t*Ð¡Ð½Ð°Ñ‡Ð°Ð»Ð° Ð½ÑƒÐ¶Ð½Ð¾ ÑÐ¾Ð·Ð´Ð°Ñ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº*\n\n";
 		return;
 	}
 	int n;
-	cout << " Ââåäèòå íîìåð >> ";
+	cout << " Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð¾Ð¼ÐµÑ€ >> ";
 	cin >> n;
 	*k = *k + 1;
 	if (*k < n || n < 1)
 	{
-		cout << "\t*Âûáðàííûé âàìè íîìåð íåêîððåêòåí*\n\n";
+		cout << "\t*Ð’Ñ‹Ð±Ñ€Ð°Ð½Ð½Ñ‹Ð¹ Ð²Ð°Ð¼Ð¸ Ð½Ð¾Ð¼ÐµÑ€ Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚ÐµÐ½*\n\n";
 		return;
 	}
 	n--;
 	list* temp = new list;
+	temp->nep.num = n + 1;
+	printf("%d. Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ: ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ(14 ÑÐ¸Ð¼Ð²Ð¾Ð»Ð¾Ð² Ð¼Ð°ÐºÑ.), Ð¢Ð¸Ð¿ (1 ÑÐ¸Ð¼Ð²Ð¾Ð»), Ð¦ÐµÐ½Ð° Ð·Ð° ÑˆÑ‚., ÐœÐ¸Ð½. ÐºÐ¾Ð»-Ð²Ð¾ Ð² Ð¿Ð°Ñ€Ñ‚Ð¸Ð¸ >", temp->nep.num);
+	scanf_s("%s", temp->nep.name, sizeof(temp->nep.name));
+	cin >> temp->nep.type;
+	scanf_s("%f", &temp->nep.price);
+	scanf_s("%d", &temp->nep.mink);
 	if (n == 0)
 	{
 		temp->next = head;
+		head->prev = temp;
+		temp->prev = NULL;
 		head = temp;
 	}
 	else
 	{
 		list* temp_n = head;
+		list* t = new list;
 		for (int i = 0; i < n - 1; i++)
 			temp_n = temp_n->next;
+
 		temp->next = temp_n->next;
 		temp_n->next = temp;
+		
+		temp->prev = temp_n;
+		if (temp->next != NULL) {
+			temp_n = temp->next;
+			temp_n->prev = temp;
+		}
+		else
+			tail = temp;
 	}
-	temp->nep.num = n + 1;
-	printf("%d. Ââåäèòå: Íàçâàíèå(14 ñèìâîëîâ ìàêñ.), Òèï (1 ñèìâîë), Öåíà çà øò., Ìèí. êîë-âî â ïàðòèè >", temp->nep.num);
-	scanf_s("%s", temp->nep.name, sizeof(temp->nep.name));
-	cin >> temp->nep.type;
-	scanf_s("%f", &temp->nep.price);
-	scanf_s("%d", &temp->nep.mink);
 	while (temp != NULL)
 	{
 		temp->nep.num = ++n;
@@ -191,16 +246,16 @@ void add(dat nep, int* k)
 void dlt(dat nep, int* k)
 {
 	if (*k == 0) {
-		cout << "\t*Ñíà÷àëà íóæíî ñîçäàòü ñïèñîê*\n\n";
+		cout << "\t*Ð¡Ð½Ð°Ñ‡Ð°Ð»Ð° Ð½ÑƒÐ¶Ð½Ð¾ ÑÐ¾Ð·Ð´Ð°Ñ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº*\n\n";
 		return;
 	}
 	list* temp_pos = head;
-	cout << " Ââåäèòå íîìåð >> ";
+	cout << " Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð¾Ð¼ÐµÑ€ >> ";
 	int n;
 	cin >> n;
 	if (n > *k)
 	{
-		cout << "\t*Âûáðàííûé âàìè íîìåð íåêîððåêòåí*\n\n";
+		cout << "\t*Ð’Ñ‹Ð±Ñ€Ð°Ð½Ð½Ñ‹Ð¹ Ð²Ð°Ð¼Ð¸ Ð½Ð¾Ð¼ÐµÑ€ Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚ÐµÐ½*\n\n";
 		return;
 	}
 	*k = *k - 1;
@@ -231,7 +286,7 @@ void dlt(dat nep, int* k)
 void srt(dat nep, int* k)
 {
 	if (*k == 0) {
-		cout << "\t*Ñíà÷àëà íóæíî ñîçäàòü ñïèñîê*\n\n";
+		cout << "\t*Ð¡Ð½Ð°Ñ‡Ð°Ð»Ð° Ð½ÑƒÐ¶Ð½Ð¾ ÑÐ¾Ð·Ð´Ð°Ñ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº*\n\n";
 		return;
 	}
 	list* temp = head;
@@ -290,9 +345,15 @@ void nwl(dat nep, FILE* f, int* k)
 		fscanf_s(f, "%f", &temp->nep.price);
 		fscanf_s(f, "%d", &temp->nep.mink);
 		if (head == NULL)
+		{
 			head = temp;
+			temp->prev = NULL;
+		}
 		else
+		{
 			tail->next = temp;
+			temp->prev = tail;
+		}
 		tail = temp;
 		temp->next = NULL;
 	}
