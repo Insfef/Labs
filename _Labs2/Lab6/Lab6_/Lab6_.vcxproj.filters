@@ -23,7 +23,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="0_H.h">
+    <ClInclude Include="0_hdr.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

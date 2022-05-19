@@ -1,4 +1,4 @@
-﻿#include "0_H.h"
+﻿#include "0_hdr.h"
 
 int compa(const char* S1, const char* S2)
 {
