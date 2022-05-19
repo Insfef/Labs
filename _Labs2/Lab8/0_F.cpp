@@ -12,9 +12,9 @@ void crt(dat nep, int* k)
 	for (int n = 0; n < 20; n++, *k = *k + 1) {
 		list* temp = new list;
 
-		printf("%d. Введите: Название(14 символов макс.), Тип (1 символ), Цена за шт., Мин. кол-во в партии >",
-			n + 1);
 		temp->nep.num = n + 1;
+		printf("%d. Введите: Название(14 символов макс.), Тип (1 символ), Цена за шт., Мин. кол-во в партии >",
+			temp->nep.num);
 		scanf_s("%s", temp->nep.name, sizeof(temp->nep.name));
 		if (!compa(temp->nep.name, "***")) break;
 		cin >> temp->nep.type;
@@ -32,6 +32,10 @@ void crt(dat nep, int* k)
 
 void prnt(dat nep, int* k)
 {
+	if (*k == 0) {
+		cout << "\t*Сначала нужно создать список*\n\n";
+		return;
+	}
 	*k = 0;
 	list* temp;
 	temp = head;
@@ -48,6 +52,10 @@ void prnt(dat nep, int* k)
 
 void fnd(dat nep, int* k)
 {
+	if (*k == 0) {
+		cout << "\t*Сначала нужно создать список*\n\n";
+		return;
+	}
 	list* temp;
 	temp = head;
 	int ans = 0;
@@ -139,6 +147,10 @@ void fnd(dat nep, int* k)
 
 void add(dat nep, int* k)
 {
+	if (*k == 0) {
+		cout << "\t*Сначала нужно создать список*\n\n";
+		return;
+	}
 	int n;
 	cout << " Введите номер >> ";
 	cin >> n;
@@ -163,7 +175,8 @@ void add(dat nep, int* k)
 		temp->next = temp_n->next;
 		temp_n->next = temp;
 	}
-	temp->nep.num = n + 2;
+	temp->nep.num = n + 1;
+	printf("%d. Введите: Название(14 символов макс.), Тип (1 символ), Цена за шт., Мин. кол-во в партии >", temp->nep.num); 
 	scanf_s("%s", temp->nep.name, sizeof(temp->nep.name));
 	cin >> temp->nep.type;
 	scanf_s("%f", &temp->nep.price);
@@ -177,6 +190,10 @@ void add(dat nep, int* k)
 
 void dlt(dat nep, int* k)
 {
+	if (*k == 0) {
+		cout << "\t*Сначала нужно создать список*\n\n";
+		return;
+	}
 	list* temp_pos = head;
 	cout << " Введите номер >> ";
 	int n;
@@ -213,6 +230,10 @@ void dlt(dat nep, int* k)
 
 void srt(dat nep, int* k)
 {
+	if (*k == 0) {
+		cout << "\t*Сначала нужно создать список*\n\n";
+		return;
+	}
 	list* temp = head;
 	list* temp2 = temp->next;
 	list* temp3 = new list;
