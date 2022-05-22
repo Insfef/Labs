@@ -10,7 +10,7 @@ int main()
 
 	FILE* f;
 
-	fopen_s(&f, "f1.dat", "wb+");
+	fopen_s(&f, "f1.dat", "rb+");
 	
 	while (ans != '4')
 	{
@@ -38,6 +38,5 @@ int main()
 			break;
 		}
 	}
-
 	fclose(f);
 }
