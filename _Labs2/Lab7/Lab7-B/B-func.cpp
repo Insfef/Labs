@@ -24,10 +24,13 @@ void wrt(int* mas) {
 	FILE* f;
 	
 	fopen_s(&f, "f1.dat", "wb");
-
 	fwrite(mas, sizeof(int), S, f);
-
 	fclose(f);
+
+
+	printf("\n\t*Массив успешно записан в файл*\n\n");
+
+	cout << "----------------------------------------------\n";
 }
 
 void rdf(int* mas) {
@@ -47,4 +50,7 @@ void rdf(int* mas) {
 		cout << *(mas + i) << " ";
 
 	printf("\n\n Сумма чётных элементов = %d\n\n", sum);
+
+	cout << "----------------------------------------------\n";
+
 }
