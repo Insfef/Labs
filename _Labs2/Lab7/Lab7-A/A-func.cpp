@@ -1,16 +1,16 @@
-#include "A-hdr.h"
+ï»¿#include "A-hdr.h"
 
 void fill(int* mas) {
 	char k = '0';
 	while (k != '1' && k != '2') {	
-		cout << "\n 1. Çàïîëíèòü ìàññèâ ñ ýêðàíà\n 2. Çàïîëíèòü ìàññèâ ñëó÷àéíûì îáðàçîì\n\n\t>>";
+		cout << "\n 1. Ð—Ð°Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÑŒ Ð¼Ð°ÑÑÐ¸Ð² Ñ ÑÐºÑ€Ð°Ð½Ð°\n 2. Ð—Ð°Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÑŒ Ð¼Ð°ÑÑÐ¸Ð² ÑÐ»ÑƒÑ‡Ð°Ð¹Ð½Ñ‹Ð¼ Ð¾Ð±Ñ€Ð°Ð·Ð¾Ð¼\n\n\t>>";
 		cin >> k;
 		system("CLS");
 	}
 
 	if (k == '1')
 		for (int i = 0; i < S; i++) {
-			cout << "\n Ââåäèòå ýëåìåíò ¹" << i + 1 << " >> ";
+			cout << "\n Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ â„–" << i + 1 << " >> ";
 			cin >> *(mas + i);
 		}
 	if (k == '2')
@@ -51,7 +51,7 @@ void rdf(int* mas, int k) {
 void prnt(int* mas) {
 	system("CLS");
 	for (int i = 0; i < S; i++)
-		printf("\nÝëåìåíò ¹%d >> %d\n", (i + 1), *(mas + i));
+		printf("\nÐ­Ð»ÐµÐ¼ÐµÐ½Ñ‚ â„–%d >> %d\n", (i + 1), *(mas + i));
 	cout << endl;
 }
 
@@ -63,7 +63,7 @@ void prnt_x() {
 	fopen_s(&f, "f2.txt", "r");
 	for (int i = 0; i < S; i++){
 		fscanf_s(f, "%d", &x);
-		printf("\nÝëåìåíò ¹%d >> %d\n", (i + 1), x);
+		printf("\nÐ­Ð»ÐµÐ¼ÐµÐ½Ñ‚ â„–%d >> %d\n", (i + 1), x);
 	}
 	cout << endl;
 }
