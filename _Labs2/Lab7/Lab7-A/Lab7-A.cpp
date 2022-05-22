@@ -22,7 +22,6 @@ int main()
 		system("CLS");
 		switch (ans) {
 
-
 		case '1':
 			system("CLS");
 			fill(mas1);
@@ -30,30 +29,29 @@ int main()
 			a = 1;
 			break;
 
-
 		case '2':
 			system("CLS");
 			rdf(mas2, 1);
 			wrt(mas2, 2);
+			cout << "\n\t*Данные успешно перенесены*\n\n";
+			cout << "----------------------------------------------\n";
 			break;
 
 		case '3':
 			if (a != 1) {
-				cout << "\t*Массив пуст* \n";
+				cout << "\n\t*Массив пуст* \n\n";
+				cout << "----------------------------------------------\n";
 				break;
 			}
 			system("CLS");
 			prnt(mas2);
 			break;
 
-
 		case '4':
 			system("CLS");
 			prnt_x();
 			break;
-
 		}
-
 	}
 	delete[] mas1, mas2;
 }

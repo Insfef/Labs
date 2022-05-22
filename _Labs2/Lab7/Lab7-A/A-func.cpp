@@ -52,7 +52,7 @@ void prnt(int* mas) {
 	system("CLS");
 	for (int i = 0; i < S; i++)
 		printf("\nЭлемент №%d >> %d\n", (i + 1), *(mas + i));
-	cout << endl;
+	cout << "\n----------------------------------------------\n";
 }
 
 void prnt_x() {
@@ -65,5 +65,6 @@ void prnt_x() {
 		fscanf_s(f, "%d", &x);
 		printf("\nЭлемент №%d >> %d\n", (i + 1), x);
 	}
-	cout << endl;
+	fclose(f);
+	cout << "\n----------------------------------------------\n";
 }
