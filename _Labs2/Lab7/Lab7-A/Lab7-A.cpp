@@ -55,4 +55,5 @@ int main()
 		}
 
 	}
+	delete[] mas1, mas2;
 }
