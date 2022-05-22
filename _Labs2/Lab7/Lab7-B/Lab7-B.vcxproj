@@ -139,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="B-func.cpp" />
     <ClCompile Include="Lab7-B.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="B-hdr.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
