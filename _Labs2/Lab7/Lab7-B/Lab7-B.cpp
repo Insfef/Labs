@@ -45,9 +45,7 @@ int main()
 			system("CLS");
 			rdf(mas2);
 			break;
-
 		}
-
 	}
 	delete[] mas1, mas2;
 }
