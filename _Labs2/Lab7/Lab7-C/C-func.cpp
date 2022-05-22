@@ -1,18 +1,18 @@
-#include "C-hdr.h"
+п»ї#include "C-hdr.h"
 
 void f_fill(FILE* f) {
 	char k = '0';
 	int rannum;
 
 	/*while (k != '1' && k != '2') {
-		cout << "\n 1. Ввод данных с экрана\n 2. Запись случайных данных\n\n\t>>";
+		cout << "\n 1. Р’РІРѕРґ РґР°РЅРЅС‹С… СЃ СЌРєСЂР°РЅР°\n 2. Р—Р°РїРёСЃСЊ СЃР»СѓС‡Р°Р№РЅС‹С… РґР°РЅРЅС‹С…\n\n\t>>";
 		cin >> k;
 		system("CLS");
 	}*/
 
 	/*if (k == '1')
 		for (int i = 0; i < S; i++) {
-			cout << "\n Введите элемент №" << i + 1 << " >> ";
+			cout << "\n Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚ в„–" << i + 1 << " >> ";
 		}
 	if (k == '2')*/
 	fseek(f, 0, SEEK_SET);
@@ -42,10 +42,10 @@ void fnd_mina(FILE* f) {
 	fseek(f, 0, SEEK_SET);
 	for (int i = 0; i < S; i++) {
 		fread(&x, sizeof(int), 1, f);
-		printf("Число №%3d >> %d\n", i + 1, x);
+		printf("Р§РёСЃР»Рѕ в„–%3d >> %d\n", i + 1, x);
 	}
 
-	printf("\n\n Минимальное число = %d и имеет номер %d\n\n", mina, mina_i + 1);
+	printf("\n\n РњРёРЅРёРјР°Р»СЊРЅРѕРµ С‡РёСЃР»Рѕ = %d Рё РёРјРµРµС‚ РЅРѕРјРµСЂ %d\n\n", mina, mina_i + 1);
 
 	cout << "----------------------------------------------\n";
 }
@@ -54,16 +54,16 @@ void fnd_sum(FILE* f) {
 	int sum = 0;
 	int x = 0;
 
-	cout << "\nДанные из файла:\n\n";
+	cout << "\nР”Р°РЅРЅС‹Рµ РёР· С„Р°Р№Р»Р°:\n\n";
 	fseek(f, 0, SEEK_SET);
 	for (int i = 0; i < S; i++) {
 		fread(&x, sizeof(int), 1, f);
 		if (i == 2 || i == 5 || i == 9)
 			sum += x;
-		printf("Число №%3d >> %d\n", i + 1, x);
+		printf("Р§РёСЃР»Рѕ в„–%3d >> %d\n", i + 1, x);
 	}
 
-	printf("\n\n Сумма чисел №3, №6 и №10 = %d\n\n", sum);
+	printf("\n\n РЎСѓРјРјР° С‡РёСЃРµР» в„–3, в„–6 Рё в„–10 = %d\n\n", sum);
 
 	cout << "----------------------------------------------\n";
 }
