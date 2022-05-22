@@ -38,7 +38,7 @@ void rdf(int* mas) {
 	for (int i = 0; i < S; i++) {
 		fread(&*(mas + i), sizeof(int), S, f);
 		if (*(mas + i) % 2 == 0)
-		sum += *mas + i;
+		sum += *(mas + i);
 	}
 	fclose(f);
 
