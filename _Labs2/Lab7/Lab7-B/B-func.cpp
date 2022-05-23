@@ -17,7 +17,8 @@ void fill(int* mas) {
 		for (int i = 0; i < S; i++)
 			*(mas + i) = rand() % 10;
 
-	system("CLS");
+	printf("\n\t*Массив успешно заполнен*\n\n");
+	cout << "----------------------------------------------\n";
 }
 
 void wrt(int* mas) {
@@ -29,7 +30,6 @@ void wrt(int* mas) {
 
 
 	printf("\n\t*Массив успешно записан в файл*\n\n");
-
 	cout << "----------------------------------------------\n";
 }
 
@@ -39,7 +39,7 @@ void rdf(int* mas) {
 
 	fopen_s(&f, "f1.dat", "rb");
 	for (int i = 0; i < S; i++) {
-		fread(&*(mas + i), sizeof(int), S, f);
+		fread(&*(mas + i), sizeof(int), 1, f);
 		if (*(mas + i) % 2 == 0)
 		sum += *(mas + i);
 	}
@@ -50,7 +50,6 @@ void rdf(int* mas) {
 		cout << *(mas + i) << " ";
 
 	printf("\n\n Сумма чётных элементов = %d\n\n", sum);
-
 	cout << "----------------------------------------------\n";
 
 }
