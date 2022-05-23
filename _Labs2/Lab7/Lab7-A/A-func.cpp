@@ -17,7 +17,8 @@ void fill(int* mas) {
 		for (int i = 0; i < S; i++)
 			*(mas + i) = rand() % 10;
 
-	system("CLS");
+	cout << "\n\t*Массив успешно заполнен*\n\n";
+	cout << "----------------------------------------------\n";
 }
 
 void wrt(int* mas, int k) {

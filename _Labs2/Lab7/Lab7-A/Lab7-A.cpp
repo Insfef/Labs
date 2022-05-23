@@ -26,7 +26,6 @@ int main()
 			system("CLS");
 			fill(mas1);
 			wrt(mas1, 1);
-			a = 1;
 			break;
 
 		case '2':
@@ -35,6 +34,7 @@ int main()
 			wrt(mas2, 2);
 			cout << "\n\t*Данные успешно перенесены*\n\n";
 			cout << "----------------------------------------------\n";
+			a = 1;
 			break;
 
 		case '3':
