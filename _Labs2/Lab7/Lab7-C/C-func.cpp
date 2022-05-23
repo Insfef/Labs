@@ -1,26 +1,16 @@
 ﻿#include "C-hdr.h"
 
 void f_fill(FILE* f) {
-	char k = '0';
 	int rannum;
 
-	/*while (k != '1' && k != '2') {
-		cout << "\n 1. Ввод данных с экрана\n 2. Запись случайных данных\n\n\t>>";
-		cin >> k;
-		system("CLS");
-	}*/
-
-	/*if (k == '1')
-		for (int i = 0; i < S; i++) {
-			cout << "\n Введите элемент №" << i + 1 << " >> ";
-		}
-	if (k == '2')*/
 	fseek(f, 0, SEEK_SET);
 	for (int i = 0; i < S; i++) {
 		rannum = rand() % 10;
 		fwrite(&rannum, sizeof(int), 1, f);
 	}
-	system("CLS");
+
+	printf("\n\n *Данные успешно записаны*\n\n");
+	cout << "----------------------------------------------\n";
 }
 
 void fnd_mina(FILE* f) {
