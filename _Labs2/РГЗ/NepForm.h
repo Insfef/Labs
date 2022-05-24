@@ -42,27 +42,16 @@ namespace РГЗ {
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::Button^ cipher;
 
-
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Button^ decipher;
 	private: System::Windows::Forms::Button^ сaesar;
-
-
 
 	private: System::Windows::Forms::Button^ swap;
 	private: System::Windows::Forms::Button^ save;
 	private: System::Windows::Forms::Button^ atbash;
 
-
-
 	private: System::Windows::Forms::Button^ button7;
 	private: System::Windows::Forms::Label^ label1;
-
-
-
-
-
-
 
 	private:
 		/// <summary>
@@ -246,7 +235,6 @@ namespace РГЗ {
 			this->Text = L"NepForm";
 			this->ResumeLayout(false);
 			this->PerformLayout();
-
 		}
 #pragma endregion
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
