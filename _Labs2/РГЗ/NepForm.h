@@ -260,7 +260,7 @@ namespace РГЗ {
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
 				*(a + i) = System::Convert::ToChar(textBox1->Text[i]);
 				cipher_caesar(a + i);
-				textBox2->Text += System::Convert::ToChar(*(a + i));
+				textBox2->Text += *(a + i);
 			}
 		if (*k == 2)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
