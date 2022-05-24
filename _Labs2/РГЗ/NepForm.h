@@ -54,6 +54,7 @@ namespace РГЗ {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ scan;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
 
 	private: System::ComponentModel::IContainer^ components;
 
@@ -83,7 +84,9 @@ namespace РГЗ {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->scan = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// textBox1
@@ -146,7 +149,7 @@ namespace РГЗ {
 			this->decipher->Name = L"decipher";
 			this->decipher->Size = System::Drawing::Size(139, 43);
 			this->decipher->TabIndex = 6;
-			this->decipher->Text = L"Разшифровать";
+			this->decipher->Text = L"Расшифровать";
 			this->decipher->UseVisualStyleBackColor = true;
 			this->decipher->Click += gcnew System::EventHandler(this, &NepForm::decipher_Click);
 			// 
@@ -234,12 +237,27 @@ namespace РГЗ {
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &NepForm::pictureBox1_Click);
 			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->pictureBox2->ErrorImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.ErrorImage")));
+			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
+			this->pictureBox2->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.InitialImage")));
+			this->pictureBox2->Location = System::Drawing::Point(601, 237);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(119, 114);
+			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox2->TabIndex = 15;
+			this->pictureBox2->TabStop = false;
+			// 
 			// NepForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Menu;
 			this->ClientSize = System::Drawing::Size(732, 478);
+			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->scan);
 			this->Controls->Add(this->label1);
@@ -252,9 +270,11 @@ namespace РГЗ {
 			this->Controls->Add(this->cipher);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"NepForm";
 			this->Text = L"NepForm";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
