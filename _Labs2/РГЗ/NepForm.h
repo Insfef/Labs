@@ -63,6 +63,7 @@ namespace РГЗ {
 
 
 
+
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
@@ -129,13 +130,16 @@ namespace РГЗ {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label2->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label2->Location = System::Drawing::Point(286, 15);
+			this->label2->Location = System::Drawing::Point(157, 19);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(25, 33);
+			this->label2->RightToLeft = System::Windows::Forms::RightToLeft::No;
+			this->label2->Size = System::Drawing::Size(285, 35);
 			this->label2->TabIndex = 5;
-			this->label2->Text = L"-";
+			this->label2->Text = L"*Шифр не выбран*";
+			this->label2->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// decipher
 			// 
@@ -212,13 +216,14 @@ namespace РГЗ {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(12, 15);
+			this->label1->Location = System::Drawing::Point(597, 6);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(268, 33);
+			this->label1->Size = System::Drawing::Size(110, 48);
 			this->label1->TabIndex = 12;
-			this->label1->Text = L"Выбранный шифр:";
+			this->label1->Text = L"Доступные\nшифры:";
+			this->label1->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
 			// NepForm
 			// 
@@ -254,7 +259,10 @@ namespace РГЗ {
 		textBox2->Text = space;
 		textBox1->Text += stop;
 
-		wchar_t a[S];
+		int s = 0;
+		while (textBox1->Text[s] != stop)
+			s++;
+		wchar_t* a = new wchar_t[s];
 
 		if (*k == 1)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
@@ -275,6 +283,7 @@ namespace РГЗ {
 				textBox2->Text += *(a + i);
 			}
 		textBox1->Text = space;
+		delete[] a;
 	}
 	
 	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -310,6 +319,7 @@ namespace РГЗ {
 				textBox2->Text += *(a + i);
 			}
 		textBox1->Text = space;
+		delete[] a;
 	}
 	private: System::Void swap_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ swap = textBox2->Text;
@@ -324,15 +334,30 @@ namespace РГЗ {
 	}
 	private: System::Void сaesar_Click(System::Object^ sender, System::EventArgs^ e) {
 		*k = 1;
-		label2->Text = "Шифр Цезаря";
+		label2->Text = "Выбран Шифр Цезаря";
+		label2->AutoSize = false;//285, 35
+		label2->Size = System::Drawing::Size(340, 35);
+		label2->Location = System::Drawing::Point(157 - (340 - 285)/2, 19);
+		this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(204)));
 	}
 	private: System::Void atbash_Click(System::Object^ sender, System::EventArgs^ e) {
 		*k = 2;
-		label2->Text = "Шифр Атбаша";
+		label2->Text = "Выбран Шифр Атбаша";
+		label2->AutoSize = false;//285, 35
+		label2->Size = System::Drawing::Size(350, 35);
+		label2->Location = System::Drawing::Point(157 - (340 - 285) / 2, 19);
+		this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(204)));
 	}
 	private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
 		*k = 3;
-		label2->Text = "ROT13";
+		label2->Text = "Выбран Шифр ROT13";
+		label2->AutoSize = false;//285, 35
+		label2->Size = System::Drawing::Size(350, 35);
+		label2->Location = System::Drawing::Point(157 - (340 - 285) / 2, 19);
+		this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(204)));
 	}
 };
 }
