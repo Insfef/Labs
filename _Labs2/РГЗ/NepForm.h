@@ -166,7 +166,7 @@ namespace РГЗ {
 			// 
 			this->save->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->save->Location = System::Drawing::Point(587, 417);
+			this->save->Location = System::Drawing::Point(587, 350);
 			this->save->Name = L"save";
 			this->save->Size = System::Drawing::Size(139, 43);
 			this->save->TabIndex = 9;
