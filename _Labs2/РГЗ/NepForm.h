@@ -391,105 +391,105 @@ namespace РГЗ {
 			static_cast<System::Byte>(204)));
 	}
 
-private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ swap = textBox2->Text;
-	textBox2->Text = textBox1->Text;
-	textBox1->Text = swap;
-}
-
-private: System::Void scan_Click(System::Object^ sender, System::EventArgs^ e) {
-	wchar_t stop = '*';
-	String^ space = nullptr;
-	textBox2->Text = space;
-	String^ txt = textBox1->Text;
-	txt += stop;
-	String^ temp;
-
-	int s = 0;
-	while (txt[s] != stop)
-		s++;
-	wchar_t* a = new wchar_t[s];
-	int iffy = 0;
-
-	if (*k == 1) {
-		temp = space;
-		for (int i = 0; txt[i] != stop; i++) {
-			*(a + i) = txt[i];
-			cipher_caesar(a + i);
-			cipher_atbosh(a + i);
-			temp += *(a + i);
-		}
-		if (temp == textBox1->Text) {
-			textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра АТБОША*\t";
-			iffy = 1;
-		}
-		temp = space;
-		for (int i = 0; txt[i] != stop; i++) {
-			*(a + i) = txt[i];
-			cipher_caesar(a + i);
-			decipher_rot13(a + i);
-			temp += *(a + i);
-		}
-		if (temp == textBox1->Text) {
-			textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра ROT13*";
-			iffy = 1;
-		}
-		if (iffy != 1)
-			textBox2->Text = "*После шифрования, данный текст возможно расшифровать лишь используя ключ выбранного шифра*";
+	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ swap = textBox2->Text;
+		textBox2->Text = textBox1->Text;
+		textBox1->Text = swap;
 	}
-	if (*k == 2) {
-		temp = space;
-		for (int i = 0; txt[i] != stop; i++) {
-			*(a + i) = txt[i];
-			cipher_atbosh(a + i);
-			decipher_caesar(a + i);
-			temp += *(a + i);
+
+	private: System::Void scan_Click(System::Object^ sender, System::EventArgs^ e) {
+		wchar_t stop = '*';
+		String^ space = nullptr;
+		textBox2->Text = space;
+		String^ txt = textBox1->Text;
+		txt += stop;
+		String^ temp;
+
+		int s = 0;
+		while (txt[s] != stop)
+			s++;
+		wchar_t* a = new wchar_t[s];
+		int iffy = 0;
+
+		if (*k == 1) {
+			temp = space;
+			for (int i = 0; txt[i] != stop; i++) {
+				*(a + i) = txt[i];
+				cipher_caesar(a + i);
+				cipher_atbosh(a + i);
+				temp += *(a + i);
+			}
+			if (temp == textBox1->Text) {
+				textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра АТБОША*\t";
+				iffy = 1;
+			}
+			temp = space;
+			for (int i = 0; txt[i] != stop; i++) {
+				*(a + i) = txt[i];
+				cipher_caesar(a + i);
+				decipher_rot13(a + i);
+				temp += *(a + i);
+			}
+			if (temp == textBox1->Text) {
+				textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра ROT13*";
+				iffy = 1;
+			}
+			if (iffy != 1)
+				textBox2->Text = "*После шифрования, данный текст возможно расшифровать лишь используя ключ выбранного шифра*";
 		}
-		if (temp == textBox1->Text) {
-			textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра ЦЕЗАРЯ*\t";
-			iffy = 1;
+		if (*k == 2) {
+			temp = space;
+			for (int i = 0; txt[i] != stop; i++) {
+				*(a + i) = txt[i];
+				cipher_atbosh(a + i);
+				decipher_caesar(a + i);
+				temp += *(a + i);
+			}
+			if (temp == textBox1->Text) {
+				textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра ЦЕЗАРЯ*\t";
+				iffy = 1;
+			}
+			temp = space;
+			for (int i = 0; txt[i] != stop; i++) {
+				*(a + i) = txt[i];
+				cipher_atbosh(a + i);
+				decipher_rot13(a + i);
+				temp += *(a + i);
+			}
+			if (temp == textBox1->Text) {
+				textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра ROT13*";
+				iffy = 1;
+			}
+			if (iffy != 1)
+				textBox2->Text = "*После шифрования, данный текст возможно расшифровать лишь используя ключ выбранного шифра*";
 		}
-		temp = space;
-		for (int i = 0; txt[i] != stop; i++) {
-			*(a + i) = txt[i];
-			cipher_atbosh(a + i);
-			decipher_rot13(a + i);
-			temp += *(a + i);
+		if (*k == 3) {
+			temp = space;
+			for (int i = 0; txt[i] != stop; i++) {
+				*(a + i) = txt[i];
+				cipher_rot13(a + i);
+				decipher_caesar(a + i);
+				temp += *(a + i);
+			}
+			if (temp == textBox1->Text) {
+				textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра ЦЕЗАРЯ*\t";
+				iffy = 1;
+			}
+			temp = space;
+			for (int i = 0; txt[i] != stop; i++) {
+				*(a + i) = txt[i];
+				cipher_rot13(a + i);
+				cipher_atbosh(a + i);
+				temp += *(a + i);
+			}
+			if (temp == textBox1->Text) {
+				textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра АТБОША*";
+				iffy = 1;
+			}
+			if (iffy != 1)
+				textBox2->Text = "*После шифрования, данный текст возможно расшифровать лишь используя ключ выбранного шифра*";
 		}
-		if (temp == textBox1->Text) {
-			textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра ROT13*";
-			iffy = 1;
-		}
-		if (iffy != 1)
-			textBox2->Text = "*После шифрования, данный текст возможно расшифровать лишь используя ключ выбранного шифра*";
+		delete[] a;
 	}
-	if (*k == 3) {
-		temp = space;
-		for (int i = 0; txt[i] != stop; i++) {
-			*(a + i) = txt[i];
-			cipher_rot13(a + i);
-			decipher_caesar(a + i);
-			temp += *(a + i);
-		}
-		if (temp == textBox1->Text) {
-			textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра ЦЕЗАРЯ*\t";
-			iffy = 1;
-		}
-		temp = space;
-		for (int i = 0; txt[i] != stop; i++) {
-			*(a + i) = txt[i];
-			cipher_rot13(a + i);
-			cipher_atbosh(a + i);
-			temp += *(a + i);
-		}
-		if (temp == textBox1->Text) {
-			textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра АТБОША*";
-			iffy = 1;
-		}
-		if (iffy != 1)
-			textBox2->Text = "*После шифрования, данный текст возможно расшифровать лишь используя ключ выбранного шифра*";
-	}
-	delete[] a;
-}
 };
 }
