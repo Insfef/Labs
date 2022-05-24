@@ -258,19 +258,19 @@ namespace РГЗ {
 
 		if (*k == 1)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
-				*(a + i) = System::Convert::ToChar(textBox1->Text[i]);
+				*(a + i) = textBox1->Text[i];
 				cipher_caesar(a + i);
 				textBox2->Text += *(a + i);
 			}
 		if (*k == 2)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
-				a[i] = System::Convert::ToChar(textBox1->Text[i]);
+				a[i] = textBox1->Text[i];
 				cipher_atbosh(a + i);
 				textBox2->Text += *(a + i);
 			}
 		if (*k == 3)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
-				a[i] = System::Convert::ToChar(textBox1->Text[i]);
+				a[i] = textBox1->Text[i];
 				cipher_rot13(a + i);
 				textBox2->Text += *(a + i);
 			}
@@ -293,19 +293,19 @@ namespace РГЗ {
 
 		if (*k == 1)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
-				*(a + i) = System::Convert::ToChar(textBox1->Text[i]);
+				*(a + i) = textBox1->Text[i];
 				decipher_caesar(a + i);
 				textBox2->Text += *(a + i);
 			}
 		if (*k == 2)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
-				a[i] = System::Convert::ToChar(textBox1->Text[i]);
+				a[i] = textBox1->Text[i];
 				cipher_atbosh(a + i);
 				textBox2->Text += *(a + i);
 			}
 		if (*k == 3)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
-				a[i] = System::Convert::ToChar(textBox1->Text[i]);
+				a[i] = textBox1->Text[i];
 				decipher_rot13(a + i);
 				textBox2->Text += *(a + i);
 			}
