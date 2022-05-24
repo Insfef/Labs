@@ -18,9 +18,15 @@
     <ClCompile Include="NepForm.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="func.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NepForm.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="hdr.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

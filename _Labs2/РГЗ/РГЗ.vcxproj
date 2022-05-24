@@ -120,9 +120,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="func.cpp" />
     <ClCompile Include="NepForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="hdr.h" />
     <ClInclude Include="NepForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

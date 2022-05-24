@@ -21,7 +21,7 @@ namespace –√« {
 	/// <summary>
 	/// —‚Ó‰Í‡ ‰Îˇ forma
 	/// </summary>
-	public ref class NepForm: public System::Windows::Forms::Form
+	public ref class NepForm : public System::Windows::Forms::Form
 	{
 	public:
 		NepForm(void)
@@ -142,7 +142,6 @@ namespace –√« {
 			this->label2->Size = System::Drawing::Size(25, 33);
 			this->label2->TabIndex = 5;
 			this->label2->Text = L"-";
-			this->label2->Click += gcnew System::EventHandler(this, &NepForm::label2_Click);
 			// 
 			// decipher
 			// 
@@ -261,143 +260,99 @@ namespace –√« {
 		textBox2->Text = space;
 		textBox1->Text += stop;
 
-		String^ ru = "‡·‚„‰Â∏ÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ";
-		String^ ruA = "¿¡¬√ƒ≈®∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›ﬁﬂ";
+		String^ ru = "‡·‚„‰Â∏ÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ‡·‚";
+		String^ ruA = "¿¡¬√ƒ≈®∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›ﬁﬂ¿¡¬";
 
 		String^ Rru = "ÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ‡·‚„‰Â∏ÊÁËÈ";
 		String^ RruA = " ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›ﬁﬂ¿¡¬√ƒ≈®∆«»…";
 
-		String^ eng = "abcdefghijklmnopqrstuvwxyz";
-		String^ engA = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		char eng[] = "abcdefghijklmnopqrstuvwxyzabc";
+		char engA[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZABC";
 
-		String^ Reng = "nopqrstuvwxyzabcdefghijklm";
-		String^ RengA = "NOPQRSTUVWXYZABCDEFGHIJKLM";
+		char Reng[] = "nopqrstuvwxyzabcdefghijklm";
+		char RengA[] = "NOPQRSTUVWXYZABCDEFGHIJKLM";
 
 		wchar_t a[S];
-		int i = 0;
-		char b;
-
-		int rua1 = 1072, rua2 = 1103;
-		int ruA1 = 1040, ruA2 = 1071;
 
 		if (*k == 1)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
-				a[i] = System::Convert::ToChar(textBox1->Text[i]);
-
-				if (a[i] >= 65 && a[i] <= 87 || a[i] >= 97 && a[i] <= 119)
-					a[i] += 3;
-				else if (a[i] >= 88 && a[i] <= 90 || a[i] >= 120 && a[i] <= 122)
-					a[i] -= 23;
-
-				if (a[i] >= rua1 && a[i] <= rua2 || a[i] == 1105)
-					for (int j = 0; j < 33; j++) {
-						if (a[i] == ru[j]) {
-							if (j <= 29)
-								a[i] = ru[j + 3];
-							else
-								a[i] = ru[j - 30];
-							break;
-						}
+				*(a + i) = System::Convert::ToChar(textBox1->Text[i]);
+				for (int j = 0; j < 26; j++) {
+					if (*(a + i) == *(eng + j)) {
+						*(a + i) = *(eng + j + 3);
+						break;
 					}
-				else if (a[i] >= rua1 && a[i] <= rua2 || a[i] == 1025)
-					for (int j = 0; j < 33; j++) {
-						if (a[i] == ruA[j]) {
-							if (j <= 29)
-								a[i] = ru[j + 3];
-							else
-								a[i] = ru[j - 30];
-							break;
-						}
+					if (*(a + i) == *(engA + j)) {
+						*(a + i) = *(engA + j + 3);
+						break;
 					}
-
-				/*if (a[i] >= 1072 && a[i] <= 1100 || a[i] >= 1040 && a[i] <= 1068)
-					a[i] += 3;
-				else if (a[i] >= 1101 && a[i] <= 1103 || a[i] >= 1069 && a[i] <= 1071)
-					a[i] -= 29;*/
-					// a - 1072 
-					// A - 1040
-					// ˇ - 1103
-					// ﬂ - 1071
-
-				textBox2->Text += a[i];
+				}
+				for (int j = 0; j < 33; j++) {
+					if (*(a + i) == ru[j]) {
+						*(a + i) = ru[j + 3];
+						break;
+					}
+					if (*(a + i) == ruA[j]) {
+						*(a + i) = ruA[j + 3];
+						break;
+					}
+				}
+				textBox2->Text += *(a + i);
 			}
 		if (*k == 2)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
 				a[i] = System::Convert::ToChar(textBox1->Text[i]);
-
-				if (a[i] >= 65 && a[i] <= 90)
-					a[i] = 65 + 90 - a[i];
-				else if (a[i] >= 97 && a[i] <= 122)
-					a[i] = 97 + 122 - a[i];
-
-				if (a[i] >= rua1 && a[i] <= rua2 || a[i] == 1105)
-					for (int j = 0; j < 33; j++) {
-						if (a[i] == ru[j]) {
-							a[i] = ru[32 - j];
-							break;
-						}
+				for (int j = 0; j < 26; j++) {
+					if (*(a + i) == *(eng + j)) {
+						*(a + i) = *(eng + 25 - j);
+						break;
 					}
-				else if (a[i] >= ruA1 && a[i] <= ruA2 || a[i] == 1025)
-					for (int j = 0; j < 33; j++) {
-						if (a[i] == ruA[j]) {
-							a[i] = ruA[32 - j];
-							break;
-						}
+					if (*(a + i) == *(engA + j)) {
+						*(a + i) = *(engA + 25 - j);
+						break;
 					}
-
-				/*if (a[i] >= rua1 && a[i] <= rua2)
-					a[i] = rua1 + rua2 - a[i];
-				else if (a[i] >= ruA1 && a[i] <= ruA2)
-					a[i] = ruA1 + ruA2 - a[i];*/
-					//65 - 90, 66 - 89
-					//a = 65 + (90 - a)
-					//65 = 65 + 90 - 65 = 90
-					//66 = 65 + 90 - 66 = 89
-					//90 = 65 + 90 - 90 = 65
-
-				textBox2->Text += a[i];
+				}
+				for (int j = 0; j < 33; j++) {
+					if (*(a + i) == ru[j]) {
+						*(a + i) = ru[32 - j];
+						break;
+					}
+					if (*(a + i) == ruA[j]) {
+						*(a + i) = ruA[32 - j];
+						break;
+					}
+				}
+				textBox2->Text += *(a + i);
 			}
 		if (*k == 3)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
 				a[i] = System::Convert::ToChar(textBox1->Text[i]);
 
-				if (a[i] >= 65 && a[i] <= 90)
-					for (int j = 0; j < 26; j++) {
-						if (a[i] == engA[j]) {
-							a[i] = RengA[j];
-							break;
-						}
+				for (int j = 0; j < 26; j++) {
+					if (*(a + i) == *(eng + j)) {
+						*(a + i) = *(Reng + j);
+						break;
 					}
-				else if (a[i] >= 97 && a[i] <= 122)
-					for (int j = 0; j < 26; j++) {
-						if (a[i] == eng[j]) {
-							a[i] = Reng[j];
-							break;
-						}
+					if (*(a + i) == *(engA + j)) {
+						*(a + i) = *(RengA + j);
+						break;
 					}
-
-				if (a[i] >= rua1 && a[i] <= rua2 || a[i] == 1105)
-					for (int j = 0; j < 33; j++) {
-						if (a[i] == ru[j]) {
-							a[i] = Rru[j];
-							break;
-						}
+				}
+				for (int j = 0; j < 33; j++) {
+					if (*(a + i) == ru[j]) {
+						*(a + i) = Rru[j];
+						break;
 					}
-				else if (a[i] >= ruA1 && a[i] <= ruA2 || a[i] == 1025)
-					for (int j = 0; j < 33; j++) {
-						if (a[i] == ruA[j]) {
-							a[i] = RruA[j];
-							break;
-						}
+					if (*(a + i) == ruA[j]) {
+						*(a + i) = RruA[j];
+						break;
 					}
-
-				textBox2->Text += a[i];
+				}
+				textBox2->Text += *(a + i);
 			}
-
 		textBox1->Text = space;
-
 	}
-
+	
 	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 
@@ -407,125 +362,109 @@ namespace –√« {
 		textBox2->Text = space;
 		textBox1->Text += stop;
 
-		String^ ru = "‡·‚„‰Â∏ÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ";
-		String^ ruA = "¿¡¬√ƒ≈®∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›ﬁﬂ";
+		String^ ru = "‡·‚„‰Â∏ÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ‡·‚";
+		String^ ruA = "¿¡¬√ƒ≈®∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›ﬁﬂ¿¡¬";
 
-		String^ Rru = "ÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ‡·‚„‰Â∏ÊÁËÈ";
-		String^ RruA = " ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›ﬁﬂ¿¡¬√ƒ≈®∆«»…";
+		String^ Rru = "ıˆ˜¯˘˙˚¸˝˛ˇ‡·‚„‰Â∏ÊÁËÈÍÎÏÌÓÔÒÚÛÙ";
+		String^ RruA = "’÷◊ÿŸ⁄€‹›ﬁﬂ¿¡¬√ƒ≈®∆«»… ÀÃÕŒœ–—“”‘";
 
-		String^ eng = "abcdefghijklmnopqrstuvwxyz";
-		String^ engA = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		char eng[] = "abcdefghijklmnopqrstuvwxyzabc";
+		char engA[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZABC";
 
-		String^ Reng = "nopqrstuvwxyzabcdefghijklm";
-		String^ RengA = "NOPQRSTUVWXYZABCDEFGHIJKLM";
+		char Reng[] = "nopqrstuvwxyzabcdefghijklm";
+		char RengA[] = "NOPQRSTUVWXYZABCDEFGHIJKLM";
 
 		wchar_t a[S];
-		int i = 0;
-		char b;
-
-		int rua1 = 1072, rua2 = 1103;
-		int ruA1 = 1040, ruA2 = 1071;
 
 		if (*k == 1)
-			for (int i = 0; textBox1->Text[i] != stop; i++)
-			{
+			for (int i = 0; textBox1->Text[i] != stop; i++) {
 				*(a + i) = System::Convert::ToChar(textBox1->Text[i]);
-
-				if (a[i] >= 68 && a[i] <= 90 || a[i] >= 100 && a[i] <= 122)
-					a[i] -= 3;
-				else if (a[i] >= 65 && a[i] <= 67 || a[i] >= 97 && a[i] <= 99)
-					a[i] += 23;
-
-				if (a[i] >= rua1 + 3 && a[i] <= rua2 || a[i] >= ruA1 + 3 && a[i] <= ruA2)
-					a[i] -= 3;
-				else if (a[i] >= ruA1 && a[i] <= ruA2 + 3 || a[i] >= ruA1 && a[i] <= ruA2 + 3)
-					a[i] += 29;
-
-				textBox2->Text += a[i];
+				for (int j = 3; j < 29; j++) {
+					if (*(a + i) == *(eng + j)) {
+						*(a + i) = *(eng + j - 3);
+						break;
+					}
+					if (*(a + i) == *(engA + j)) {
+						*(a + i) = *(engA + j - 3);
+						break;
+					}
+				}
+				for (int j = 3; j < 36; j++) {
+					if (*(a + i) == ru[j]) {
+						*(a + i) = ru[j - 3];
+						break;
+					}
+					if (*(a + i) == ruA[j]) {
+						*(a + i) = ruA[j - 3];
+						break;
+					}
+				}
+				textBox2->Text += *(a + i);
 			}
 		if (*k == 2)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
 				a[i] = System::Convert::ToChar(textBox1->Text[i]);
-
-				if (a[i] >= 65 && a[i] <= 90)
-					a[i] = 65 + 90 - a[i];
-				else if (a[i] >= 97 && a[i] <= 122)
-					a[i] = 97 + 122 - a[i];
-
-				if (a[i] >= rua1 && a[i] <= rua2 || a[i] == 1105)
-					for (int j = 0; j < 33; j++) {
-						if (a[i] == ru[j]) {
-							a[i] = ru[32 - j];
-							break;
-						}
+				for (int j = 0; j < 26; j++) {
+					if (*(a + i) == *(eng + j)) {
+						*(a + i) = *(eng + 25 - j);
+						break;
 					}
-				else if (a[i] >= ruA1 && a[i] <= ruA2 || a[i] == 1025)
-					for (int j = 0; j < 33; j++) {
-						if (a[i] == ruA[j]) {
-							a[i] = ruA[32 - j];
-							break;
-						}
+					if (*(a + i) == *(engA + j)) {
+						*(a + i) = *(engA + 25 - j);
+						break;
 					}
-
-				textBox2->Text += a[i];
+				}
+				for (int j = 0; j < 33; j++) {
+					if (*(a + i) == ru[j]) {
+						*(a + i) = ru[32 - j];
+						break;
+					}
+					if (*(a + i) == ruA[j]) {
+						*(a + i) = ruA[32 - j];
+						break;
+					}
+				}
+				textBox2->Text += *(a + i);
 			}
 		if (*k == 3)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
 				a[i] = System::Convert::ToChar(textBox1->Text[i]);
 
-				if (a[i] >= 65 && a[i] <= 90)
-					for (int j = 0; j < 26; j++) {
-						if (a[i] == RengA[j]) {
-							a[i] = engA[j];
-							break;
-						}
+				for (int j = 0; j < 26; j++) {
+					if (*(a + i) == *(eng + j)) {
+						*(a + i) = *(Reng + j);
+						break;
 					}
-				else if (a[i] >= 97 && a[i] <= 122)
-					for (int j = 0; j < 26; j++) {
-						if (a[i] == Reng[j]) {
-							a[i] = eng[j];
-							break;
-						}
+					if (*(a + i) == *(engA + j)) {
+						*(a + i) = *(RengA + j);
+						break;
 					}
-
-				if (a[i] >= rua1 && a[i] <= rua2 || a[i] == 1105)
-					for (int j = 0; j < 33; j++) {
-						if (a[i] == Rru[j]) {
-							a[i] = ru[j];
-							break;
-						}
+				}
+				for (int j = 0; j < 33; j++) {
+					if (*(a + i) == ru[j]) {
+						*(a + i) = Rru[j];
+						break;
 					}
-				else if (a[i] >= ruA1 && a[i] <= ruA2 || a[i] == 1025)
-					for (int j = 0; j < 33; j++) {
-						if (a[i] == RruA[j]) {
-							a[i] = ruA[j];
-							break;
-						}
+					if (*(a + i) == ruA[j]) {
+						*(a + i) = RruA[j];
+						break;
 					}
-
-				textBox2->Text += a[i];
+				}
+				textBox2->Text += *(a + i);
 			}
-
 		textBox1->Text = space;
-
 	}
-
 	private: System::Void swap_Click(System::Object^ sender, System::EventArgs^ e) {
-
 		String^ swap = textBox2->Text;
 		textBox2->Text = textBox1->Text;
 		textBox1->Text = swap;
 	}
-
-
 	private: System::Void save_Click(System::Object^ sender, System::EventArgs^ e) {
 		FILE* f;
 		fopen_s(&f, "t1.txt", "w");
 		fprintf(f, "%s\n", textBox2->Text);
 		fclose(f);
 	}
-
-
 	private: System::Void Òaesar_Click(System::Object^ sender, System::EventArgs^ e) {
 		*k = 1;
 		label2->Text = "ÿËÙ ÷ÂÁ‡ˇ";
@@ -537,8 +476,6 @@ namespace –√« {
 	private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
 		*k = 3;
 		label2->Text = "ROT13";
-	}
-	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 };
 }
