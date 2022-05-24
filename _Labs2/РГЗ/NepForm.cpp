@@ -1,4 +1,4 @@
-#include "NepForm.h"
+п»ї#include "NepForm.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -8,6 +8,6 @@ void main(array<String^>^ arg) {
     Application::EnableVisualStyles();
     Application::SetCompatibleTextRenderingDefault(false);
 
-    РГЗ::NepForm form; // mathpro название проекта , hello название фрмы (вашей)
+    Р Р“Р—::NepForm form; // mathpro РЅР°Р·РІР°РЅРёРµ РїСЂРѕРµРєС‚Р° , hello РЅР°Р·РІР°РЅРёРµ С„СЂРјС‹ (РІР°С€РµР№)
     Application::Run(% form);
 }

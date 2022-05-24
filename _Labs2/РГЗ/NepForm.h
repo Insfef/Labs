@@ -1,16 +1,10 @@
-#pragma once
-#include <string.h>
-#include <cstdio>
-#include <stdio.h>
-#include <iostream>
-#include <ctime>
-#include <iomanip>
-#include <Windows.h>
-#define S 200
+п»ї#pragma once
+#include "hdr.h"
+#define S 300
 
 int* k = new int;
 
-namespace РГЗ {
+namespace Р Р“Р— {
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -19,7 +13,7 @@ namespace РГЗ {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Сводка для forma
+	/// РЎРІРѕРґРєР° РґР»СЏ forma
 	/// </summary>
 	public ref class NepForm : public System::Windows::Forms::Form
 	{
@@ -28,13 +22,13 @@ namespace РГЗ {
 		{
 			InitializeComponent();
 			//
-			//TODO: добавьте код конструктора
+			//TODO: РґРѕР±Р°РІСЊС‚Рµ РєРѕРґ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Освободить все используемые ресурсы.
+		/// РћСЃРІРѕР±РѕРґРёС‚СЊ РІСЃРµ РёСЃРїРѕР»СЊР·СѓРµРјС‹Рµ СЂРµСЃСѓСЂСЃС‹.
 		/// </summary>
 		~NepForm()
 		{
@@ -51,7 +45,7 @@ namespace РГЗ {
 
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Button^ decipher;
-	private: System::Windows::Forms::Button^ сaesar;
+	private: System::Windows::Forms::Button^ СЃaesar;
 
 
 
@@ -71,14 +65,14 @@ namespace РГЗ {
 
 	private:
 		/// <summary>
-		/// Обязательная переменная конструктора.
+		/// РћР±СЏР·Р°С‚РµР»СЊРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°.
 		/// </summary>
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Требуемый метод для поддержки конструктора — не изменяйте 
-		/// содержимое этого метода с помощью редактора кода.
+		/// РўСЂРµР±СѓРµРјС‹Р№ РјРµС‚РѕРґ РґР»СЏ РїРѕРґРґРµСЂР¶РєРё РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° вЂ” РЅРµ РёР·РјРµРЅСЏР№С‚Рµ 
+		/// СЃРѕРґРµСЂР¶РёРјРѕРµ СЌС‚РѕРіРѕ РјРµС‚РѕРґР° СЃ РїРѕРјРѕС‰СЊСЋ СЂРµРґР°РєС‚РѕСЂР° РєРѕРґР°.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -87,7 +81,7 @@ namespace РГЗ {
 			this->cipher = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->decipher = (gcnew System::Windows::Forms::Button());
-			this->сaesar = (gcnew System::Windows::Forms::Button());
+			this->СЃaesar = (gcnew System::Windows::Forms::Button());
 			this->swap = (gcnew System::Windows::Forms::Button());
 			this->save = (gcnew System::Windows::Forms::Button());
 			this->atbash = (gcnew System::Windows::Forms::Button());
@@ -128,7 +122,7 @@ namespace РГЗ {
 			this->cipher->Name = L"cipher";
 			this->cipher->Size = System::Drawing::Size(139, 43);
 			this->cipher->TabIndex = 2;
-			this->cipher->Text = L"Зашифровать";
+			this->cipher->Text = L"Р—Р°С€РёС„СЂРѕРІР°С‚СЊ";
 			this->cipher->UseVisualStyleBackColor = true;
 			this->cipher->Click += gcnew System::EventHandler(this, &NepForm::button1_Click);
 			// 
@@ -151,21 +145,21 @@ namespace РГЗ {
 			this->decipher->Name = L"decipher";
 			this->decipher->Size = System::Drawing::Size(139, 43);
 			this->decipher->TabIndex = 6;
-			this->decipher->Text = L"Разшифровать";
+			this->decipher->Text = L"Р Р°Р·С€РёС„СЂРѕРІР°С‚СЊ";
 			this->decipher->UseVisualStyleBackColor = true;
 			this->decipher->Click += gcnew System::EventHandler(this, &NepForm::decipher_Click);
 			// 
-			// сaesar
+			// СЃaesar
 			// 
-			this->сaesar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->СЃaesar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->сaesar->Location = System::Drawing::Point(587, 57);
-			this->сaesar->Name = L"сaesar";
-			this->сaesar->Size = System::Drawing::Size(139, 43);
-			this->сaesar->TabIndex = 7;
-			this->сaesar->Text = L"Шифр Цезаря";
-			this->сaesar->UseVisualStyleBackColor = true;
-			this->сaesar->Click += gcnew System::EventHandler(this, &NepForm::сaesar_Click);
+			this->СЃaesar->Location = System::Drawing::Point(587, 57);
+			this->СЃaesar->Name = L"СЃaesar";
+			this->СЃaesar->Size = System::Drawing::Size(139, 43);
+			this->СЃaesar->TabIndex = 7;
+			this->СЃaesar->Text = L"РЁРёС„СЂ Р¦РµР·Р°СЂСЏ";
+			this->СЃaesar->UseVisualStyleBackColor = true;
+			this->СЃaesar->Click += gcnew System::EventHandler(this, &NepForm::СЃaesar_Click);
 			// 
 			// swap
 			// 
@@ -175,7 +169,7 @@ namespace РГЗ {
 			this->swap->Name = L"swap";
 			this->swap->Size = System::Drawing::Size(177, 43);
 			this->swap->TabIndex = 8;
-			this->swap->Text = L"Поменять местами";
+			this->swap->Text = L"РџРѕРјРµРЅСЏС‚СЊ РјРµСЃС‚Р°РјРё";
 			this->swap->UseVisualStyleBackColor = true;
 			this->swap->Click += gcnew System::EventHandler(this, &NepForm::swap_Click);
 			// 
@@ -187,7 +181,7 @@ namespace РГЗ {
 			this->save->Name = L"save";
 			this->save->Size = System::Drawing::Size(139, 43);
 			this->save->TabIndex = 9;
-			this->save->Text = L"Сохранить";
+			this->save->Text = L"РЎРѕС…СЂР°РЅРёС‚СЊ";
 			this->save->UseVisualStyleBackColor = true;
 			this->save->Click += gcnew System::EventHandler(this, &NepForm::save_Click);
 			// 
@@ -199,7 +193,7 @@ namespace РГЗ {
 			this->atbash->Name = L"atbash";
 			this->atbash->Size = System::Drawing::Size(139, 43);
 			this->atbash->TabIndex = 10;
-			this->atbash->Text = L"Шифр Атбаша";
+			this->atbash->Text = L"РЁРёС„СЂ РђС‚Р±Р°С€Р°";
 			this->atbash->UseVisualStyleBackColor = true;
 			this->atbash->Click += gcnew System::EventHandler(this, &NepForm::atbash_Click);
 			// 
@@ -211,7 +205,7 @@ namespace РГЗ {
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(139, 43);
 			this->button7->TabIndex = 11;
-			this->button7->Text = L"Шифр ROT13";
+			this->button7->Text = L"РЁРёС„СЂ ROT13";
 			this->button7->UseVisualStyleBackColor = true;
 			this->button7->Click += gcnew System::EventHandler(this, &NepForm::button7_Click);
 			// 
@@ -224,7 +218,7 @@ namespace РГЗ {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(268, 33);
 			this->label1->TabIndex = 12;
-			this->label1->Text = L"Выбранный шифр:";
+			this->label1->Text = L"Р’С‹Р±СЂР°РЅРЅС‹Р№ С€РёС„СЂ:";
 			// 
 			// NepForm
 			// 
@@ -237,7 +231,7 @@ namespace РГЗ {
 			this->Controls->Add(this->atbash);
 			this->Controls->Add(this->save);
 			this->Controls->Add(this->swap);
-			this->Controls->Add(this->сaesar);
+			this->Controls->Add(this->СЃaesar);
 			this->Controls->Add(this->decipher);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->cipher);
@@ -260,94 +254,24 @@ namespace РГЗ {
 		textBox2->Text = space;
 		textBox1->Text += stop;
 
-		String^ ru = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяабв";
-		String^ ruA = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯАБВ";
-
-		String^ Rru = "клмнопрстуфхцчшщъыьэюяабвгдеёжзий";
-		String^ RruA = "КЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯАБВГДЕЁЖЗИЙ";
-
-		char eng[] = "abcdefghijklmnopqrstuvwxyzabc";
-		char engA[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZABC";
-
-		char Reng[] = "nopqrstuvwxyzabcdefghijklm";
-		char RengA[] = "NOPQRSTUVWXYZABCDEFGHIJKLM";
-
 		wchar_t a[S];
 
 		if (*k == 1)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
 				*(a + i) = System::Convert::ToChar(textBox1->Text[i]);
-				for (int j = 0; j < 26; j++) {
-					if (*(a + i) == *(eng + j)) {
-						*(a + i) = *(eng + j + 3);
-						break;
-					}
-					if (*(a + i) == *(engA + j)) {
-						*(a + i) = *(engA + j + 3);
-						break;
-					}
-				}
-				for (int j = 0; j < 33; j++) {
-					if (*(a + i) == ru[j]) {
-						*(a + i) = ru[j + 3];
-						break;
-					}
-					if (*(a + i) == ruA[j]) {
-						*(a + i) = ruA[j + 3];
-						break;
-					}
-				}
-				textBox2->Text += *(a + i);
+				cipher_caesar(a + i);
+				textBox2->Text += System::Convert::ToChar(*(a + i));
 			}
 		if (*k == 2)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
 				a[i] = System::Convert::ToChar(textBox1->Text[i]);
-				for (int j = 0; j < 26; j++) {
-					if (*(a + i) == *(eng + j)) {
-						*(a + i) = *(eng + 25 - j);
-						break;
-					}
-					if (*(a + i) == *(engA + j)) {
-						*(a + i) = *(engA + 25 - j);
-						break;
-					}
-				}
-				for (int j = 0; j < 33; j++) {
-					if (*(a + i) == ru[j]) {
-						*(a + i) = ru[32 - j];
-						break;
-					}
-					if (*(a + i) == ruA[j]) {
-						*(a + i) = ruA[32 - j];
-						break;
-					}
-				}
+				cipher_atbosh(a + i);
 				textBox2->Text += *(a + i);
 			}
 		if (*k == 3)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
 				a[i] = System::Convert::ToChar(textBox1->Text[i]);
-
-				for (int j = 0; j < 26; j++) {
-					if (*(a + i) == *(eng + j)) {
-						*(a + i) = *(Reng + j);
-						break;
-					}
-					if (*(a + i) == *(engA + j)) {
-						*(a + i) = *(RengA + j);
-						break;
-					}
-				}
-				for (int j = 0; j < 33; j++) {
-					if (*(a + i) == ru[j]) {
-						*(a + i) = Rru[j];
-						break;
-					}
-					if (*(a + i) == ruA[j]) {
-						*(a + i) = RruA[j];
-						break;
-					}
-				}
+				cipher_rot13(a + i);
 				textBox2->Text += *(a + i);
 			}
 		textBox1->Text = space;
@@ -362,94 +286,27 @@ namespace РГЗ {
 		textBox2->Text = space;
 		textBox1->Text += stop;
 
-		String^ ru = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяабв";
-		String^ ruA = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯАБВ";
-
-		String^ Rru = "хцчшщъыьэюяабвгдеёжзийклмнопрстуф";
-		String^ RruA = "ХЦЧШЩЪЫЬЭЮЯАБВГДЕЁЖЗИЙКЛМНОПРСТУФ";
-
-		char eng[] = "abcdefghijklmnopqrstuvwxyzabc";
-		char engA[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZABC";
-
-		char Reng[] = "nopqrstuvwxyzabcdefghijklm";
-		char RengA[] = "NOPQRSTUVWXYZABCDEFGHIJKLM";
-
-		wchar_t a[S];
+		int s = 0;
+		while (textBox1->Text[s] != stop)
+			s++;
+		wchar_t* a = new wchar_t [s];
 
 		if (*k == 1)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
 				*(a + i) = System::Convert::ToChar(textBox1->Text[i]);
-				for (int j = 3; j < 29; j++) {
-					if (*(a + i) == *(eng + j)) {
-						*(a + i) = *(eng + j - 3);
-						break;
-					}
-					if (*(a + i) == *(engA + j)) {
-						*(a + i) = *(engA + j - 3);
-						break;
-					}
-				}
-				for (int j = 3; j < 36; j++) {
-					if (*(a + i) == ru[j]) {
-						*(a + i) = ru[j - 3];
-						break;
-					}
-					if (*(a + i) == ruA[j]) {
-						*(a + i) = ruA[j - 3];
-						break;
-					}
-				}
+				decipher_caesar(a + i);
 				textBox2->Text += *(a + i);
 			}
 		if (*k == 2)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
 				a[i] = System::Convert::ToChar(textBox1->Text[i]);
-				for (int j = 0; j < 26; j++) {
-					if (*(a + i) == *(eng + j)) {
-						*(a + i) = *(eng + 25 - j);
-						break;
-					}
-					if (*(a + i) == *(engA + j)) {
-						*(a + i) = *(engA + 25 - j);
-						break;
-					}
-				}
-				for (int j = 0; j < 33; j++) {
-					if (*(a + i) == ru[j]) {
-						*(a + i) = ru[32 - j];
-						break;
-					}
-					if (*(a + i) == ruA[j]) {
-						*(a + i) = ruA[32 - j];
-						break;
-					}
-				}
+				cipher_atbosh(a + i);
 				textBox2->Text += *(a + i);
 			}
 		if (*k == 3)
 			for (int i = 0; textBox1->Text[i] != stop; i++) {
 				a[i] = System::Convert::ToChar(textBox1->Text[i]);
-
-				for (int j = 0; j < 26; j++) {
-					if (*(a + i) == *(eng + j)) {
-						*(a + i) = *(Reng + j);
-						break;
-					}
-					if (*(a + i) == *(engA + j)) {
-						*(a + i) = *(RengA + j);
-						break;
-					}
-				}
-				for (int j = 0; j < 33; j++) {
-					if (*(a + i) == ru[j]) {
-						*(a + i) = Rru[j];
-						break;
-					}
-					if (*(a + i) == ruA[j]) {
-						*(a + i) = RruA[j];
-						break;
-					}
-				}
+				decipher_rot13(a + i);
 				textBox2->Text += *(a + i);
 			}
 		textBox1->Text = space;
@@ -465,13 +322,13 @@ namespace РГЗ {
 		fprintf(f, "%s\n", textBox2->Text);
 		fclose(f);
 	}
-	private: System::Void сaesar_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void СЃaesar_Click(System::Object^ sender, System::EventArgs^ e) {
 		*k = 1;
-		label2->Text = "Шифр Цезаря";
+		label2->Text = "РЁРёС„СЂ Р¦РµР·Р°СЂСЏ";
 	}
 	private: System::Void atbash_Click(System::Object^ sender, System::EventArgs^ e) {
 		*k = 2;
-		label2->Text = "Шифр Атбаша";
+		label2->Text = "РЁРёС„СЂ РђС‚Р±Р°С€Р°";
 	}
 	private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
 		*k = 3;
