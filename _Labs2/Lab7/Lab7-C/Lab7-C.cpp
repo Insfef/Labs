@@ -23,17 +23,14 @@ int main()
 		switch (ans) {
 
 		case '1':
-			system("CLS");
 			f_fill(f);
 			break;
 
 		case '2':
-			system("CLS");
 			fnd_sum(f);
 			break;
 
 		case '3':
-			system("CLS");
 			fnd_mina(f);
 			break;
 		}

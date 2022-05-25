@@ -23,13 +23,11 @@ int main()
 		switch (ans) {
 
 		case '1':
-			system("CLS");
 			fill(mas1);
 			wrt(mas1, 1);
 			break;
 
 		case '2':
-			system("CLS");
 			rdf(mas2, 1);
 			wrt(mas2, 2);
 			cout << "\n\t*Данные успешно перенесены*\n\n";
@@ -43,12 +41,10 @@ int main()
 				cout << "----------------------------------------------\n";
 				break;
 			}
-			system("CLS");
 			prnt(mas2);
 			break;
 
 		case '4':
-			system("CLS");
 			prnt_x();
 			break;
 		}

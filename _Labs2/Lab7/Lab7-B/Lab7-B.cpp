@@ -22,7 +22,6 @@ int main()
 		switch (ans) {
 
 		case '1':
-			system("CLS");
 			fill(mas1);
 			a = 1;
 			break;
@@ -33,12 +32,10 @@ int main()
 				cout << "----------------------------------------------\n";
 				break;
 			}
-			system("CLS");
 			wrt(mas1);
 			break;
 
 		case '3':
-			system("CLS");
 			rdf(mas2);
 			break;
 		}
