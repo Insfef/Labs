@@ -16,117 +16,157 @@ wchar_t ROTengA[] = L"NOPQRSTUVWXYZABCDEFGHIJKLM";
 wchar_t de_ROTru[] = L"хцчшщъыьэюяабвгдеёжзийклмнопрстуф";
 wchar_t de_ROTruA[] = L"ХЦЧШЩЪЫЬЭЮЯАБВГДЕЁЖЗИЙКЛМНОПРСТУФ";
 
-void cipher_caesar(wchar_t* a) {
-	for (int j = 0; j < 26; j++) {
-		if (*a == *(eng + j)) {
-			*a = *(eng + j + 3);
-			break;
+System::String^ cipher_caesar(wchar_t* a, System::String^ txt, wchar_t stop) {
+	System::String^ txt2;
+	txt += stop;
+	for (int i = 0; txt[i] != stop; i++) {
+		*(a + i) = txt[i];
+
+		for (int j = 0; j < 26; j++) {
+			if (*(a + i) == *(eng + j)) {
+				*(a + i) = *(eng + j + 3);
+				break;
+			}
+			if (*(a + i) == *(engA + j)) {
+				*(a + i) = *(engA + j + 3);
+				break;
+			}
 		}
-		if (*a == *(engA + j)) {
-			*a = *(engA + j + 3);
-			break;
+		for (int j = 0; j < 33; j++) {
+			if (*(a + i) == *(ru + j)) {
+				*(a + i) = *(ru + j + 3);
+				break;
+			}
+			if (*(a + i) == *(ruA + j)) {
+				*(a + i) = *(ruA + j + 3);
+				break;
+			}
 		}
+		txt2 += *(a + i);
 	}
-	for (int j = 0; j < 33; j++) {
-		if (*a == ru[j]) {
-			*a = ru[j + 3];
-			break;
-		}
-		if (*a == ruA[j]) {
-			*a = ruA[j + 3];
-			break;
-		}
-	}
+	return txt2;
 }
 
-void cipher_atbosh(wchar_t* a) {
-	for (int j = 0; j < 26; j++) {
-		if (*a == *(eng + j)) {
-			*a = *(eng + 25 - j);
-			break;
+System::String^ cipher_atbash(wchar_t* a, System::String^ txt, wchar_t stop) {
+	System::String^ txt2;
+	txt += stop;
+	for (int i = 0; txt[i] != stop; i++) {
+		*(a + i) = txt[i];
+
+		for (int j = 0; j < 26; j++) {
+			if (*(a + i) == *(eng + j)) {
+				*(a + i) = *(eng + 25 - j);
+				break;
+			}
+			if (*(a + i) == *(engA + j)) {
+				*(a + i) = *(engA + 25 - j);
+				break;
+			}
 		}
-		if (*a == *(engA + j)) {
-			*a = *(engA + 25 - j);
-			break;
+		for (int j = 0; j < 33; j++) {
+			if (*(a + i) == *(ru + j)) {
+				*(a + i) = *(ru + 32 - j);
+				break;
+			}
+			if (*(a + i) == *(ruA + j)) {
+				*(a + i) = *(ruA + 32 - j);
+				break;
+			}
 		}
+		txt2 += *(a + i);
 	}
-	for (int j = 0; j < 33; j++) {
-		if (*a == ru[j]) {
-			*a = ru[32 - j];
-			break;
-		}
-		if (*a == ruA[j]) {
-			*a = ruA[32 - j];
-			break;
-		}
-	}
+	return txt2;
 }
 
-void cipher_rot13(wchar_t* a) {
-	for (int j = 0; j < 26; j++) {
-		if (*a == *(eng + j)) {
-			*a = *(ROTeng + j);
-			break;
+System::String^ cipher_rot13(wchar_t* a, System::String^ txt, wchar_t stop) {
+	System::String^ txt2;
+	txt += stop;
+	for (int i = 0; txt[i] != stop; i++) {
+		*(a + i) = txt[i];
+
+		for (int j = 0; j < 26; j++) {
+			if (*(a + i) == *(eng + j)) {
+				*(a + i) = *(ROTeng + j);
+				break;
+			}
+			if (*(a + i) == *(engA + j)) {
+				*(a + i) = *(ROTengA + j);
+				break;
+			}
 		}
-		if (*a == *(engA + j)) {
-			*a = *(ROTengA + j);
-			break;
+		for (int j = 0; j < 33; j++) {
+			if (*(a + i) == *(ru + j)) {
+				*(a + i) = *(ROTru + j);
+				break;
+			}
+			if (*(a + i) == *(ruA + j)) {
+				*(a + i) = *(ROTruA + j);
+				break;
+			}
 		}
+		txt2 += *(a + i);
 	}
-	for (int j = 0; j < 33; j++) {
-		if (*a == ru[j]) {
-			*a = ROTru[j];
-			break;
-		}
-		if (*a == ruA[j]) {
-			*a = ROTruA[j];
-			break;
-		}
-	}
+	return txt2;
 }
 
-void decipher_caesar(wchar_t* a) {
-	for (int j = 3; j < 29; j++) {
-		if (*a == *(eng + j)) {
-			*a = *(eng + j - 3);
-			break;
+System::String^ decipher_caesar(wchar_t* a, System::String^ txt, wchar_t stop) {
+	System::String^ txt2;
+	txt += stop;
+	for (int i = 0; txt[i] != stop; i++) {
+		*(a + i) = txt[i];
+
+		for (int j = 3; j < 29; j++) {
+			if (*(a + i) == *(eng + j)) {
+				*(a + i) = *(eng + j - 3);
+				break;
+			}
+			if (*(a + i) == *(engA + j)) {
+				*(a + i) = *(engA + j - 3);
+				break;
+			}
 		}
-		if (*a == *(engA + j)) {
-			*a = *(engA + j - 3);
-			break;
+		for (int j = 3; j < 36; j++) {
+			if (*(a + i) == *(ru + j)) {
+				*(a + i) = *(ru + j - 3);
+				break;
+			}
+			if (*(a + i) == *(ruA + j)) {
+				*(a + i) = *(ruA + j - 3);
+				break;
+			}
 		}
+		txt2 += *(a + i);
 	}
-	for (int j = 3; j < 36; j++) {
-		if (*a == ru[j]) {
-			*a = ru[j - 3];
-			break;
-		}
-		if (*a == ruA[j]) {
-			*a = ruA[j - 3];
-			break;
-		}
-	}
+	return txt2;
 }
 
-void decipher_rot13(wchar_t* a) {
-	for (int j = 0; j < 26; j++) {
-		if (*a == *(eng + j)) {
-			*a = *(ROTeng + j);
-			break;
+System::String^ decipher_rot13(wchar_t* a, System::String^ txt, wchar_t stop) {
+	System::String^ txt2;
+	txt += stop;
+	for (int i = 0; txt[i] != stop; i++) {
+		*(a + i) = txt[i];
+
+		for (int j = 0; j < 26; j++) {
+			if (*(a + i) == *(eng + j)) {
+				*(a + i) = *(ROTeng + j);
+				break;
+			}
+			if (*(a + i) == *(engA + j)) {
+				*(a + i) = *(ROTengA + j);
+				break;
+			}
 		}
-		if (*a == *(engA + j)) {
-			*a = *(ROTengA + j);
-			break;
+		for (int j = 0; j < 33; j++) {
+			if (*(a + i) == *(ru + j)) {
+				*(a + i) = *(de_ROTru + j);
+				break;
+			}
+			if (*(a + i) == *(ruA + j)) {
+				*(a + i) = *(de_ROTruA + j);
+				break;
+			}
 		}
+		txt2 += *(a + i);
 	}
-	for (int j = 0; j < 33; j++) {
-		if (*a == ru[j]) {
-			*a = de_ROTru[j];
-			break;
-		}
-		if (*a == ruA[j]) {
-			*a = de_ROTruA[j];
-			break;
-		}
-	}
+	return txt2;
 }

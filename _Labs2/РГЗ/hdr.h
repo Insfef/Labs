@@ -7,12 +7,12 @@
 #include <iomanip>
 #include <Windows.h>
 
-void cipher_caesar(wchar_t* a);
+System::String^ cipher_caesar(wchar_t* a, System::String^ txt, wchar_t stop);
 
-void cipher_atbosh(wchar_t* a);
+System::String^ cipher_atbash(wchar_t* a, System::String^ txt, wchar_t stop);
 
-void cipher_rot13(wchar_t* a);
+System::String^ cipher_rot13(wchar_t* a, System::String^ txt, wchar_t stop);
 
-void decipher_caesar(wchar_t* a);
+System::String^ decipher_caesar(wchar_t* a, System::String^ txt, wchar_t stop);
 
-void decipher_rot13(wchar_t* a);
+System::String^ decipher_rot13(wchar_t* a, System::String^ txt, wchar_t stop);

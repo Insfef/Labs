@@ -54,7 +54,7 @@ namespace РГЗ {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ scan;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::PictureBox^ pictureBox2;
+
 
 	private: System::ComponentModel::IContainer^ components;
 
@@ -84,9 +84,7 @@ namespace РГЗ {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->scan = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// textBox1
@@ -237,27 +235,12 @@ namespace РГЗ {
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &NepForm::pictureBox1_Click);
 			// 
-			// pictureBox2
-			// 
-			this->pictureBox2->BackColor = System::Drawing::Color::Transparent;
-			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-			this->pictureBox2->ErrorImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.ErrorImage")));
-			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			this->pictureBox2->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.InitialImage")));
-			this->pictureBox2->Location = System::Drawing::Point(601, 237);
-			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(119, 114);
-			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pictureBox2->TabIndex = 15;
-			this->pictureBox2->TabStop = false;
-			// 
 			// NepForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Menu;
 			this->ClientSize = System::Drawing::Size(732, 478);
-			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->scan);
 			this->Controls->Add(this->label1);
@@ -274,7 +257,6 @@ namespace РГЗ {
 			this->Name = L"NepForm";
 			this->Text = L"NepForm";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -296,23 +278,11 @@ namespace РГЗ {
 		wchar_t* a = new wchar_t[s];
 
 		if (*k == 1)
-			for (int i = 0; textBox1->Text[i] != stop; i++) {
-				*(a + i) = textBox1->Text[i];
-				cipher_caesar(a + i);
-				textBox2->Text += *(a + i);
-			}
+			textBox2->Text = cipher_caesar(a, textBox1->Text, stop);
 		if (*k == 2)
-			for (int i = 0; textBox1->Text[i] != stop; i++) {
-				a[i] = textBox1->Text[i];
-				cipher_atbosh(a + i);
-				textBox2->Text += *(a + i);
-			}
+			textBox2->Text = cipher_atbash(a, textBox1->Text, stop);
 		if (*k == 3)
-			for (int i = 0; textBox1->Text[i] != stop; i++) {
-				a[i] = textBox1->Text[i];
-				cipher_rot13(a + i);
-				textBox2->Text += *(a + i);
-			}
+			textBox2->Text = cipher_rot13(a, textBox1->Text, stop);
 		textBox1->Text = space;
 		delete[] a;
 	}
@@ -332,23 +302,11 @@ namespace РГЗ {
 		wchar_t* a = new wchar_t [s];
 
 		if (*k == 1)
-			for (int i = 0; textBox1->Text[i] != stop; i++) {
-				*(a + i) = textBox1->Text[i];
-				decipher_caesar(a + i);
-				textBox2->Text += *(a + i);
-			}
+			textBox2->Text = decipher_caesar(a, textBox1->Text, stop);
 		if (*k == 2)
-			for (int i = 0; textBox1->Text[i] != stop; i++) {
-				a[i] = textBox1->Text[i];
-				cipher_atbosh(a + i);
-				textBox2->Text += *(a + i);
-			}
+			textBox2->Text = cipher_atbash(a, textBox1->Text, stop);
 		if (*k == 3)
-			for (int i = 0; textBox1->Text[i] != stop; i++) {
-				a[i] = textBox1->Text[i];
-				decipher_rot13(a + i);
-				textBox2->Text += *(a + i);
-			}
+			textBox2->Text = decipher_rot13(a, textBox1->Text, stop);
 		textBox1->Text = space;
 		delete[] a;
 	}
@@ -413,23 +371,15 @@ namespace РГЗ {
 
 		if (*k == 1) {
 			temp = space;
-			for (int i = 0; txt[i] != stop; i++) {
-				*(a + i) = txt[i];
-				cipher_caesar(a + i);
-				cipher_atbosh(a + i);
-				temp += *(a + i);
-			}
+			temp = cipher_caesar(a, txt, stop);
+			temp = cipher_atbash(a, temp, stop);
 			if (temp == textBox1->Text) {
-				textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра АТБОША*\t";
+				textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра АТБАША*\t";
 				iffy = 1;
 			}
 			temp = space;
-			for (int i = 0; txt[i] != stop; i++) {
-				*(a + i) = txt[i];
-				cipher_caesar(a + i);
-				decipher_rot13(a + i);
-				temp += *(a + i);
-			}
+			temp = cipher_caesar(a, txt, stop);
+			temp = decipher_rot13(a, temp, stop);
 			if (temp == textBox1->Text) {
 				textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра ROT13*";
 				iffy = 1;
@@ -439,23 +389,15 @@ namespace РГЗ {
 		}
 		if (*k == 2) {
 			temp = space;
-			for (int i = 0; txt[i] != stop; i++) {
-				*(a + i) = txt[i];
-				cipher_atbosh(a + i);
-				decipher_caesar(a + i);
-				temp += *(a + i);
-			}
+			temp = cipher_atbash(a, txt, stop);
+			temp = decipher_caesar(a, temp, stop);
 			if (temp == textBox1->Text) {
 				textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра ЦЕЗАРЯ*\t";
 				iffy = 1;
 			}
 			temp = space;
-			for (int i = 0; txt[i] != stop; i++) {
-				*(a + i) = txt[i];
-				cipher_atbosh(a + i);
-				decipher_rot13(a + i);
-				temp += *(a + i);
-			}
+			temp = cipher_atbash(a, txt, stop);
+			temp = decipher_rot13(a, temp, stop);
 			if (temp == textBox1->Text) {
 				textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра ROT13*";
 				iffy = 1;
@@ -465,25 +407,17 @@ namespace РГЗ {
 		}
 		if (*k == 3) {
 			temp = space;
-			for (int i = 0; txt[i] != stop; i++) {
-				*(a + i) = txt[i];
-				cipher_rot13(a + i);
-				decipher_caesar(a + i);
-				temp += *(a + i);
-			}
+			temp = cipher_rot13(a, txt, stop);
+			temp = decipher_caesar(a, temp, stop);
 			if (temp == textBox1->Text) {
 				textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра ЦЕЗАРЯ*\t";
 				iffy = 1;
 			}
 			temp = space;
-			for (int i = 0; txt[i] != stop; i++) {
-				*(a + i) = txt[i];
-				cipher_rot13(a + i);
-				cipher_atbosh(a + i);
-				temp += *(a + i);
-			}
+			temp = cipher_rot13(a, txt, stop);
+			temp = cipher_atbash(a, temp, stop);
 			if (temp == textBox1->Text) {
-				textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра АТБОША*";
+				textBox2->Text += "*После шифрования, данный текст возможно расшифровать используя ключ шифра АТБАША*";
 				iffy = 1;
 			}
 			if (iffy != 1)
