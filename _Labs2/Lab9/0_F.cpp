@@ -8,7 +8,7 @@ void crt(dat nep, int* k)
 	for (int i = 0; i < *k; i++)
 		dlt_first(nep, k);
 	*k = 0;
-	cout << "(Вводите данные через пробел)" << endl;
+	cout << "Вводите данные через пробел\n Введите \"***\", чтобы закончить\n\n" << endl;
 	for (int n = 0; n < 20; n++, *k = *k + 1) {
 		list* temp = new list;
 
@@ -34,6 +34,7 @@ void crt(dat nep, int* k)
 		tail = temp;
 		temp->next = NULL;
 	}
+	system("CLS");
 }
 
 void prnt(dat nep, int* k, int type)
@@ -66,7 +67,7 @@ void prnt(dat nep, int* k, int type)
 		while (temp != NULL)
 		{
 			printf("| %-2d| %-19s | %-10c | %-18.2f | %-30d |\n",
-				++i, temp->nep.name, temp->nep.type, temp->nep.price, temp->nep.mink);
+				temp->nep.num, temp->nep.name, temp->nep.type, temp->nep.price, temp->nep.mink);
 			temp = temp->prev;
 		}
 		prnt_down();

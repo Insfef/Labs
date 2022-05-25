@@ -18,58 +18,49 @@ int main(void) {
 		printf(" 8. Сортировать записи\n 9. Перенести список в файл\n 10. Создать новый список из файла \n 11. Выйти из программы\n\t>> ");
 
 		cin >> ans;
+		system("CLS");
 		putchar('\n');
 		switch (ans) {
 		case 1:
-			system("CLS");
 			crt(nep, k);
 			a = 1;
 			break;
 
 		case 2:
-			system("CLS");
 			prnt(nep, k, 1);
 			break;
 
 		case 3:
-			system("CLS");
 			prnt(nep, k, 2);
 			break;
 
 		case 4:
-			system("CLS");
 			fnd(nep, k, 1);
 			break;
 
 		case 5:
-			system("CLS");
 			fnd(nep, k, 2);
 			break;
 
 		case 6:
-			system("CLS");
 			add(nep, k);
 			break;
 
 		case 7:
-			system("CLS");
 			dlt(nep, k);
 			break;
 
 		case 8:
-			system("CLS");
 			srt(nep, k);
 			break;
 
 		case 9:
-			system("CLS");
 			fopen_s(&f, "t1.txt", "w");
 			wrt(nep, f, k);
 			fclose(f);
 			break;
 
 		case 10:
-			system("CLS");
 			fopen_s(&f, "t1.txt", "r");
 			nwl(nep, f, k);
 			fclose(f);
