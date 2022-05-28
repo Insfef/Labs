@@ -8,6 +8,6 @@ void main(array<String^>^ arg) {
     Application::EnableVisualStyles();
     Application::SetCompatibleTextRenderingDefault(false);
 
-    РГЗ::NepForm form; // mathpro название проекта , hello название фрмы (вашей)
+    РГЗ::NepForm form;
     Application::Run(% form);
 }
