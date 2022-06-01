@@ -102,7 +102,6 @@ namespace РГЗ {
 			this->textBox1->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 			this->textBox1->Size = System::Drawing::Size(692, 237);
 			this->textBox1->TabIndex = 0;
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &NepForm::textBox1_TextChanged);
 			// 
 			// textBox2
 			// 
@@ -117,7 +116,6 @@ namespace РГЗ {
 			this->textBox2->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 			this->textBox2->Size = System::Drawing::Size(692, 258);
 			this->textBox2->TabIndex = 1;
-			this->textBox2->TextChanged += gcnew System::EventHandler(this, &NepForm::textBox2_TextChanged);
 			// 
 			// cipher
 			// 
@@ -129,7 +127,7 @@ namespace РГЗ {
 			this->cipher->TabIndex = 2;
 			this->cipher->Text = L"Зашифровать";
 			this->cipher->UseVisualStyleBackColor = true;
-			this->cipher->Click += gcnew System::EventHandler(this, &NepForm::button1_Click);
+			this->cipher->Click += gcnew System::EventHandler(this, &NepForm::cipher_Click);
 			// 
 			// label2
 			// 
@@ -281,10 +279,8 @@ namespace РГЗ {
 
 		}
 #pragma endregion
-	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
 
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void cipher_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ space = nullptr;
 		textBox2->Text = space;
 		String^ txt = textBox1->Text;
@@ -310,9 +306,6 @@ namespace РГЗ {
 		}
 
 		delete[] txt_proc;
-	}
-	
-	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 
 	private: System::Void decipher_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -348,20 +341,13 @@ namespace РГЗ {
 		textBox1->Text = swap;
 	}
 	private: System::Void save_Click(System::Object^ sender, System::EventArgs^ e) {
-		FILE* file;
-		if (file = fopen("t1.txt", "r")) {
-			fclose(file);
 			System::IO::File::WriteAllText("t1.txt", textBox2->Text);
 			textBox2->Text = " *Данные успешно записаны*";
-		}
-		else {
-			textBox2->Text = " *Файла не существует*";
-		}
 	}
 	private: System::Void сaesar_Click(System::Object^ sender, System::EventArgs^ e) {
 		*type = 1;
 		label2->Text = "Выбран Шифр Цезаря";
-		label2->AutoSize = false;//285, 35
+		label2->AutoSize = false;
 		label2->Size = System::Drawing::Size(340, 35);
 		label2->Location = System::Drawing::Point(190, 19);
 		this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -370,7 +356,7 @@ namespace РГЗ {
 	private: System::Void atbash_Click(System::Object^ sender, System::EventArgs^ e) {
 		*type = 2;
 		label2->Text = "Выбран Шифр Атбаша";
-		label2->AutoSize = false;//285, 35
+		label2->AutoSize = false;
 		label2->Size = System::Drawing::Size(340, 35);
 		label2->Location = System::Drawing::Point(190, 19);
 		this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -379,7 +365,7 @@ namespace РГЗ {
 	private: System::Void ROT13_Click(System::Object^ sender, System::EventArgs^ e) {
 		*type = 3;
 		label2->Text = "Выбран Шифр ROT13";
-		label2->AutoSize = false;//285, 35; 222, 19
+		label2->AutoSize = false;
 		label2->Size = System::Drawing::Size(340, 35);
 		label2->Location = System::Drawing::Point(190, 19);
 		this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -485,11 +471,11 @@ namespace РГЗ {
 		delete[] txt_proc;
 	}
 private: System::Void read_Click(System::Object^ sender, System::EventArgs^ e) {
-	FILE* file;
-	if (file = fopen("t1.txt", "r")) {
-		fclose(file);
-		textBox2->Text = " *Данные успешно считаны*";
+	FILE* f;
+	if (f = fopen("t1.txt", "r")) {
+		fclose(f);
 		textBox1->Text = System::IO::File::ReadAllText("t1.txt");
+		textBox2->Text = " *Данные успешно считаны*";
 	}
 	else {
 		textBox2->Text = " *Файла не существует*";
