@@ -187,7 +187,7 @@ namespace РГЗ {
 			this->atbash->Name = L"atbash";
 			this->atbash->Size = System::Drawing::Size(139, 54);
 			this->atbash->TabIndex = 10;
-			this->atbash->Text = L"Шифр Атбаша";
+			this->atbash->Text = L"Шифр Атбаш";
 			this->atbash->UseVisualStyleBackColor = true;
 			this->atbash->Click += gcnew System::EventHandler(this, &NepForm::atbash_Click);
 			// 
@@ -272,7 +272,7 @@ namespace РГЗ {
 			this->Controls->Add(this->pictureBox1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"NepForm";
-			this->Text = L"NepForm";
+			this->Text = L"Шифратор";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -335,11 +335,6 @@ namespace РГЗ {
 
 		delete[] txt_proc;
 	}
-	private: System::Void swap_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ swap = textBox2->Text;
-		textBox2->Text = textBox1->Text;
-		textBox1->Text = swap;
-	}
 	private: System::Void save_Click(System::Object^ sender, System::EventArgs^ e) {
 			System::IO::File::WriteAllText("t1.txt", textBox2->Text);
 			textBox2->Text = " *Данные успешно записаны*";
@@ -355,7 +350,7 @@ namespace РГЗ {
 	}
 	private: System::Void atbash_Click(System::Object^ sender, System::EventArgs^ e) {
 		*type = 2;
-		label2->Text = "Выбран Шифр Атбаша";
+		label2->Text = "Выбран Шифр Атбаш";
 		label2->AutoSize = false;
 		label2->Size = System::Drawing::Size(340, 35);
 		label2->Location = System::Drawing::Point(190, 19);
@@ -370,7 +365,7 @@ namespace РГЗ {
 		label2->Location = System::Drawing::Point(190, 19);
 		this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(204)));
-	}
+	}	
 
 	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 		textBox1->Text = textBox2->Text;
@@ -387,8 +382,6 @@ namespace РГЗ {
 		while (txt[*size] != stop)
 			*size += 1;
 		wchar_t* txt_proc = new wchar_t[*size];
-		int iffy = 0;
-
 
 		String^ temp;
 		if (*size > 0) {
@@ -399,7 +392,7 @@ namespace РГЗ {
 				textBox2->Text += "Зашифрованный текст (Шифр Цезаря): " + temp + "\r\n";
 				temp += stop;
 				temp = cipher_atbash(txt_proc, temp, stop);
-				textBox2->Text += "\r\n-Результат попытки разшифровать шифр используя ключ шифра Атбаша:\r\n" + temp;
+				textBox2->Text += "\r\n-Результат попытки разшифровать шифр используя ключ шифра Атбаш:\r\n" + temp;
 				if (temp == textBox1->Text)
 					textBox2->Text += "\r\n\t*Равен исходному тексту*\r\n";
 				else
@@ -419,7 +412,7 @@ namespace РГЗ {
 			case 2:
 				temp = space;
 				temp = cipher_atbash(txt_proc, txt, stop);
-				textBox2->Text += "Зашифрованный текст (Шифр Атбаша): " + temp + "\r\n";
+				textBox2->Text += "Зашифрованный текст (Шифр Атбаш): " + temp + "\r\n";
 				temp += stop;
 				temp = decipher_caesar(txt_proc, temp, stop);
 				textBox2->Text += "\r\n-Результат попытки разшифровать шифр используя ключ шифра Цезаря:\r\n" + temp;
@@ -454,7 +447,7 @@ namespace РГЗ {
 				temp = space;
 				temp = cipher_rot13(txt_proc, txt, stop) + stop;
 				temp = cipher_atbash(txt_proc, temp, stop);
-				textBox2->Text += "\r\n-Результат попытки разшифровать шифр используя ключ шифра Атбаша:\r\n" + temp;
+				textBox2->Text += "\r\n-Результат попытки разшифровать шифр используя ключ шифра Атбаш:\r\n" + temp;
 				if (temp == textBox1->Text)
 					textBox2->Text += "\r\n\t*Равен исходному тексту*\r\n";
 				else
